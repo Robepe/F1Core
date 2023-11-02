@@ -1,15 +1,32 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const Cuenta = sequelize.define('Cuenta', {
-        username: DataTypes.STRING,
-        email: DataTypes.STRING,
-        password: DataTypes.STRING,
-        admin: DataTypes.BOOLEAN,
-        fav_driver: DataTypes.INTEGER,
-        fav_team: DataTypes.INTEGER
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: {
+            type: DataTypes.STRING
+        },
+        email: {
+            type: DataTypes.STRING
+        },
+        password: {
+            type: DataTypes.STRING,
+        },
+        admin: {
+            type: DataTypes.BOOLEAN
+        },
+        fav_driver: {
+            type: DataTypes.INTEGER
+        },
+        fav_team: {
+            type: DataTypes.INTEGER
+        }
     }, {});
     Cuenta.associate = function (models) {
-        // Define las asociaciones aquí, si es necesario.
+        // definir asociaciones
     };
     return Cuenta;
 };

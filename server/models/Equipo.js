@@ -1,16 +1,41 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Equipo = sequelize.define('Equipo', {
-    name: DataTypes.STRING,
-    driver1_id: DataTypes.INTEGER,
-    driver2_id: DataTypes.INTEGER,
-    firstSeason: DataTypes.DATE,
-    totalPoints: DataTypes.INTEGER,
-    disputedRaces: DataTypes.INTEGER,
-    victories: DataTypes.INTEGER,
-    podiums: DataTypes.INTEGER,
-    championshipsWon: DataTypes.INTEGER,
-    description: DataTypes.STRING
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+      type: DataTypes.STRING
+    },
+    driver1_id: {
+      type: DataTypes.INTEGER
+    },
+    driver2_id: {
+      type: DataTypes.INTEGER
+    },
+    firstSeason: {
+      type: DataTypes.DATE
+    },
+    totalPoints: {
+      type: DataTypes.INTEGER,
+    },
+    disputedRaces: {
+      type: DataTypes.INTEGER,
+    },
+    victories: {
+      type: DataTypes.INTEGER,
+    },
+    podiums: {
+      type: DataTypes.INTEGER,
+    },
+    championshipsWon: {
+      type: DataTypes.INTEGER,
+    },
+    description: {
+      type: DataTypes.STRING,
+    }
   }, {});
   Equipo.associate = function (models) {
     Equipo.hasMany(models.ParticipacionTemporada, {
