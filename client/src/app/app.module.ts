@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -11,11 +14,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    // ... tus componentes
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule, // Agrega HttpClientModule para el uso de HttpLoaderFactory
+    AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -25,8 +30,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   bootstrap: [
-    // ... tu componente raíz
+    AppComponent
   ],
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
 
