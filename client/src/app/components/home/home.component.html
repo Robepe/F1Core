@@ -16,7 +16,15 @@
                         <a class="nav-link" href="#" [translate]="'navbar.about'"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" [translate]="'navbar.contact'"></a>
+                        <a class="nav-link" href="login" [translate]="'navbar.contact'"></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item px-2">
+                        <a class="btn btn-outline-primary ms-auto" href="#" [translate]="'navbar.signin'"></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="btn btn-primary me-auto" href="login" [translate]="'navbar.signup'"></a>
                     </li>
                 </ul>
             </div>
@@ -56,8 +64,7 @@
         <!-- Dropdown selección idiomas -->
         <div class="col">
             <div ngbDropdown placement="top-start" class="d-inline-block">
-                <button type="button" class="btn btn-outline-primary" id="dropdownBasic2"
-                    ngbDropdownToggle>Language</button>
+                <button type="button" class="btn btn-primary" id="dropdownBasic2" ngbDropdownToggle>Language</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
                     <button ngbDropdownItem (click)="changeLanguage('en')">English</button>
                     <button ngbDropdownItem (click)="changeLanguage('es')">Spanish</button>

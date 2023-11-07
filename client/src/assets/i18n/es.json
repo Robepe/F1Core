@@ -2,6 +2,8 @@
     "navbar.home": "Inicio",
     "navbar.about": "Acerca de",
     "navbar.contact": "Contacto",
+    "navbar.signin": "Iniciar Sesión",
+    "navbar.signup": "Registrarse",
     "header.welcome": "Bienvenido a Mi Sitio Web",
     "header.description": "Tu fuente confiable de información y servicios.",
     "header.learnMore": "Leer Más",

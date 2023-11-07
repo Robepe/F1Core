@@ -2,6 +2,8 @@
     "navbar.home": "Home",
     "navbar.about": "About",
     "navbar.contact": "Contact",
+    "navbar.signin": "Sign in",
+    "navbar.signup": "Sign up",
     "header.welcome": "Welcome to My Website",
     "header.description": "Your trusted source for information and services.",
     "header.learnMore": "Learn More",
