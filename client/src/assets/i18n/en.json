@@ -1,5 +1,13 @@
 {
-    "title": "Title",
-    "welcomeMessage": "Welcome to our application!",
-    "buttonLabel": "Click Me"
+    "navbar.home": "Home",
+    "navbar.about": "About",
+    "navbar.contact": "Contact",
+    "header.welcome": "Welcome to My Website",
+    "header.description": "Your trusted source for information and services.",
+    "header.learnMore": "Learn More",
+    "section1.title": "Section 1 Title",
+    "section1.content": "Content for Section 1.",
+    "section2.title": "Section 2 Title",
+    "section2.content": "Content for Section 2.",
+    "footer.copyright": "Copyright © 2023 My Website"
 }

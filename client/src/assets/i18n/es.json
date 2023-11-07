@@ -1,5 +1,13 @@
 {
-    "title": "Título",
-    "welcomeMessage": "¡Bienvenido a nuestra aplicación!",
-    "buttonLabel": "Haz clic en mí"
+    "navbar.home": "Inicio",
+    "navbar.about": "Acerca de",
+    "navbar.contact": "Contacto",
+    "header.welcome": "Bienvenido a Mi Sitio Web",
+    "header.description": "Tu fuente confiable de información y servicios.",
+    "header.learnMore": "Leer Más",
+    "section1.title": "Título de la Sección 1",
+    "section1.content": "Contenido de la Sección 1.",
+    "section2.title": "Título de la Sección 2",
+    "section2.content": "Contenido de la Sección 2.",
+    "footer.copyright": "Derechos de autor © 2023 Mi Sitio Web"
 }
