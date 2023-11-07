@@ -14,5 +14,11 @@
     "footer.copyright": "Copyright © 2023 F1Core",
     "footer.language": "Language",
     "dropdown.english": "English",
-    "dropdown.spanish": "Spanish"
+    "dropdown.spanish": "Spanish",
+    "card1.title": "Card_1",
+    "card1.description": "Description",
+    "card2.title": "Card_2",
+    "card2.description": "Description",
+    "card3.title": "Card_3",
+    "card3.description": "Description"
 }

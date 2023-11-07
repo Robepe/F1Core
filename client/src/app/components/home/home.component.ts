@@ -14,7 +14,7 @@ export class HomeComponent {
     this.translate.use(language);
   }
 
-  cardData = [
+  cards = [
     {
       title: 'Card 1',
       description: 'Descripción de la tarjeta 1',
