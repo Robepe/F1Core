@@ -2,7 +2,7 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">F1Core</a>
+            <a class="navbar-brand" href="/">F1Core</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" [translate]="'navbar.home'"></a>
+                        <a class="nav-link" href="/" [translate]="'navbar.home'"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" [translate]="'navbar.about'"></a>
+                        <a class="nav-link" href="#about" [translate]="'navbar.about'"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login" [translate]="'navbar.contact'"></a>
@@ -34,9 +34,9 @@
     <!-- Encabezado -->
     <header class="py-5 text-center">
         <div class="container">
-            <h1 class="display-4">Bienvenido a Mi Sitio Web</h1>
-            <p class="lead">Tu fuente confiable de información y servicios.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Leer Más</a>
+            <h1 class="display-4" [translate]="'header.welcome'"></h1>
+            <p class="lead" [translate]="'header.description'"></p>
+            <a class="btn btn-primary btn-lg" href="#about" role="button" [translate]="'header.learnMore'"></a>
         </div>
     </header>
 
@@ -44,13 +44,15 @@
     <main class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h2>Título de la Sección 1</h2>
-                    <p>Contenido de la sección 1.</p>
-                </div>
-                <div class="col-md-6">
-                    <h2>Título de la Sección 2</h2>
-                    <p>Contenido de la sección 2.</p>
+                <div class="col-md-4 mt-4" *ngFor="let item of cardData">
+                    <div class="card">
+                        <!-- <img src="imagen.jpg" class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,15 +61,16 @@
     <!-- Pie de página -->
     <footer class="py-4 bg-dark text-white">
         <div class="container text-center">
-            <p>Derechos de autor © 2023 Mi Sitio Web</p>
+            <p [translate]="'footer.copyright'"></p>
         </div>
         <!-- Dropdown selección idiomas -->
         <div class="col">
             <div ngbDropdown placement="top-start" class="d-inline-block">
-                <button type="button" class="btn btn-primary" id="dropdownBasic2" ngbDropdownToggle>Language</button>
+                <button type="button" class="btn btn-secondary" id="dropdownBasic2" [translate]="'footer.language'"
+                    ngbDropdownToggle></button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-                    <button ngbDropdownItem (click)="changeLanguage('en')">English</button>
-                    <button ngbDropdownItem (click)="changeLanguage('es')">Spanish</button>
+                    <button ngbDropdownItem (click)="changeLanguage('en')" [translate]="'dropdown.english'"></button>
+                    <button ngbDropdownItem (click)="changeLanguage('es')" [translate]="'dropdown.spanish'"></button>
                 </div>
             </div>
         </div>

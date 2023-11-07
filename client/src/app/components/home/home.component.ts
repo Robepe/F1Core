@@ -13,4 +13,19 @@ export class HomeComponent {
   changeLanguage(language: string) {
     this.translate.use(language);
   }
+
+  cardData = [
+    {
+      title: 'Card 1',
+      description: 'Descripción de la tarjeta 1',
+    },
+    {
+      title: 'Card 2',
+      description: 'Descripción de la tarjeta 2',
+    },
+    {
+      title: 'Card 3',
+      description: 'Descripción de la tarjeta 3',
+    },
+  ];
 }

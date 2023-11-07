@@ -4,12 +4,16 @@
     "navbar.contact": "Contacto",
     "navbar.signin": "Iniciar Sesión",
     "navbar.signup": "Registrarse",
-    "header.welcome": "Bienvenido a Mi Sitio Web",
+    "header.welcome": "Bienvenido a F1Core",
     "header.description": "Tu fuente confiable de información y servicios.",
     "header.learnMore": "Leer Más",
     "section1.title": "Título de la Sección 1",
     "section1.content": "Contenido de la Sección 1.",
     "section2.title": "Título de la Sección 2",
     "section2.content": "Contenido de la Sección 2.",
-    "footer.copyright": "Derechos de autor © 2023 Mi Sitio Web"
+    "footer.copyright": "Derechos de autor © 2023 F1Core",
+    "footer.language": "Idioma",
+    "dropdown.english": "Inglés",
+    "dropdown.spanish": "Español"
+
 }

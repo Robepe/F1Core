@@ -4,12 +4,15 @@
     "navbar.contact": "Contact",
     "navbar.signin": "Sign in",
     "navbar.signup": "Sign up",
-    "header.welcome": "Welcome to My Website",
+    "header.welcome": "Welcome to F1Core",
     "header.description": "Your trusted source for information and services.",
     "header.learnMore": "Learn More",
     "section1.title": "Section 1 Title",
     "section1.content": "Content for Section 1.",
     "section2.title": "Section 2 Title",
     "section2.content": "Content for Section 2.",
-    "footer.copyright": "Copyright © 2023 My Website"
+    "footer.copyright": "Copyright © 2023 F1Core",
+    "footer.language": "Language",
+    "dropdown.english": "English",
+    "dropdown.spanish": "Spanish"
 }
