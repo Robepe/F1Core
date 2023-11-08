@@ -15,10 +15,10 @@
     "footer.language": "Idioma",
     "dropdown.english": "Inglés",
     "dropdown.spanish": "Español",
-    "card1.title": "Card_1",
-    "card1.description": "Descripción",
-    "card2.title": "Card_2",
-    "card2.description": "Descripción",
-    "card3.title": "Card_3",
-    "card3.description": "Descripción"
+    "card1.title": "¡No te pierdas ni un segundo del Campeonato",
+    "card1.description": "Obtén toda la emoción y los detalles en tiempo real después de cada sesión del Gran Premio. Mantente al día con las últimas noticias, clasificaciones y estadísticas.",
+    "card2.title": "Explora la Historia de la Fórmula 1",
+    "card2.description": "Sumérgete en las estadísticas de pilotos y equipos desde los inicios en 1950 hasta la actualidad. Descubre récords, curiosidades y datos históricos.",
+    "card3.title": "Notificaciones en Tiempo Real",
+    "card3.description": "Personaliza tus alertas de notificación para recibir actualizaciones en tiempo real sobre tu piloto y equipo favorito en cada Gran Premio de Fórmula 1."
 }

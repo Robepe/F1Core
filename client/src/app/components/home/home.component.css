@@ -1,5 +1,5 @@
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     background-color: #343a40;
@@ -7,8 +7,16 @@ footer {
     padding: 10px;
 }
 
-.grid-container {
+/* .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* Divide en 3 columnas */
-    grid-gap: 20px;  /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+} */
+
+body {
+    background-color: lightgray;
+}
+
+main {
+    margin-bottom: 14em;
 }
