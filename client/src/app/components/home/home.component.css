@@ -7,6 +7,10 @@ footer {
     padding: 10px;
 }
 
+.custom-footer-text {
+    text-align: center;
+}
+
 /* .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -18,5 +22,5 @@ body {
 }
 
 main {
-    margin-bottom: 14em;
+    margin-bottom: 16em;
 }

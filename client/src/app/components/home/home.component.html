@@ -58,21 +58,27 @@
 
     <!-- Pie de página -->
     <footer class="py-4 bg-dark text-white">
-        <div>
-            <div class="container text-center">
-                <p [translate]="'footer.copyright'"></p>
-            </div>
-            <!-- Dropdown selección idiomas -->
-            <div class="col">
-                <div ngbDropdown placement="top-start" class="d-inline-block">
-                    <button type="button" class="btn btn-secondary" id="dropdownBasic2" [translate]="'footer.language'"
-                        ngbDropdownToggle></button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-                        <button ngbDropdownItem (click)="changeLanguage('en')"
-                            [translate]="'dropdown.english'"></button>
-                        <button ngbDropdownItem (click)="changeLanguage('es')"
-                            [translate]="'dropdown.spanish'"></button>
+        <div class="container">
+            <div class="row">
+                <div class="col text-start">
+                    <div ngbDropdown placement="top-end" class="d-inline-block">
+                        <button type="button" class="btn btn-secondary" id="dropdownBasic2"
+                            [translate]="'footer.language'" ngbDropdownToggle></button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                            <button ngbDropdownItem (click)="changeLanguage('en')"
+                                [translate]="'dropdown.english'"></button>
+                            <button ngbDropdownItem (click)="changeLanguage('es')"
+                                [translate]="'dropdown.spanish'"></button>
+                        </div>
                     </div>
+                </div>
+                <div class="col text-center">
+                    <p [translate]="'footer.copyright'" class="custom-footer-text"></p>
+                </div>
+                <div class="col text-end">
+                    <a href="https://github.com/tuusuario" target="_blank">
+                        <img src="ruta/a/tu/imagen/github.png" alt="GitHub" width="30" height="30">
+                    </a>
                 </div>
             </div>
         </div>
