@@ -1,1 +1,81 @@
-<h1>Prueba Bootstrap / ng-bootstrap</h1>
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">F1Core</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" [translate]="'navbar.home'"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" [translate]="'navbar.about'"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login" [translate]="'navbar.contact'"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item px-2">
+                    <a class="btn btn-outline-primary ms-auto" href="#" [translate]="'navbar.signin'"></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="btn btn-primary me-auto" href="login" [translate]="'navbar.signup'"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenido del login -->
+<div class="container mt-5">
+    <main>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        [Aquí puedes agregar un encabezado si lo deseas]
+                    </div>
+                    <div class="card-body">
+                        <!-- Aquí van los campos de inicio de sesión, por ejemplo: -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label" [translate]="'login.usernameLabel'"></label>
+                                <input type="text" class="form-control" id="username"
+                                    placeholder="Tu nombre de usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" [translate]="'login.passwordLabel'"></label>
+                                <input type="password" class="form-control" id="password" placeholder="Tu contraseña">
+                            </div>
+                            <button type="submit" class="btn btn-primary" [translate]="'login.loginButton'"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Pie de página -->
+<footer class="py-4 bg-dark text-white">
+    <div>
+        <div class="container text-center">
+            <p [translate]="'footer.copyright'"></p>
+        </div>
+        <!-- Dropdown selección idiomas -->
+        <div class="col">
+            <div ngbDropdown placement="top-start" class="d-inline-block">
+                <button type="button" class="btn btn-secondary" id="dropdownBasic2" [translate]="'footer.language'"
+                    ngbDropdownToggle></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                    <button ngbDropdownItem (click)="changeLanguage('en')" [translate]="'dropdown.english'"></button>
+                    <button ngbDropdownItem (click)="changeLanguage('es')" [translate]="'dropdown.spanish'"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
