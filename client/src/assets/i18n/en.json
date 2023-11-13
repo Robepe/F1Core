@@ -20,5 +20,6 @@
     "card2.title": "Explore the History of Formula One",
     "card2.description": "Dive into driver and team statistics from the early days in 1950 to the present. Discover records, trivia, and historical insights.",
     "card3.title": "Real-Time Notifications",
-    "card3.description": "Customize your notification alerts to receive real-time updates on your favorite driver and team during every Formula 1 Grand Prix."
+    "card3.description": "Customize your notification alerts to receive real-time updates on your favorite driver and team during every Formula 1 Grand Prix.",
+    "background.error": "Oops. It looks like your browser does not support video :("
 }
