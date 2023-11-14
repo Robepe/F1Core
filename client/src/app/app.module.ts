@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -18,6 +19,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
