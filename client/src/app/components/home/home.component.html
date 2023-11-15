@@ -29,7 +29,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item px-2">
-                        <a class="btn btn-outline-primary ms-auto" href="#" [translate]="'navbar.signin'"></a>
+                        <a class="btn btn-outline-primary ms-auto" (click)="openAuthModal()" [translate]="'navbar.signin'"></a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="btn btn-primary me-auto" href="login" [translate]="'navbar.signup'"></a>
