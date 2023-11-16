@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './modales/auth/auth.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -22,6 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     HomeComponent,
     AuthComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
