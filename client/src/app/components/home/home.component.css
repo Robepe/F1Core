@@ -19,7 +19,11 @@ footer {
 
 body {
     background-color: transparent;
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 0.5), rgba(51, 51, 51, 0.5) 50%, rgba(51, 51, 51, 0.5) 75%);
+    /*background: linear-gradient(#e66465, #9198e5);*/
 }
+
+
 
 main {
     margin-bottom: 17em;
