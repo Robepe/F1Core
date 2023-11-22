@@ -7,6 +7,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { PilotsComponent } from './components/pilots/pilots.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { ResultsComponent } from './components/results/results.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,9 @@ const routes: Routes = [
   {
     path: 'layout', component: MainLayoutComponent, children: [
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'pilots', component: PilotsComponent, canActivate: [AuthGuard] },
+      { path: 'teams', component: TeamsComponent, canActivate: [AuthGuard] },
+      { path: 'results', component: ResultsComponent, canActivate: [AuthGuard] },
       // más rutas que necesiten el sidebar
     ]
   }

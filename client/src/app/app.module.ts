@@ -13,6 +13,9 @@ import { AuthComponent } from './modales/auth/auth.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { PilotsComponent } from './components/pilots/pilots.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { ResultsComponent } from './components/results/results.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,6 +31,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     SidebarComponent,
     MainLayoutComponent,
+    PilotsComponent,
+    TeamsComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
