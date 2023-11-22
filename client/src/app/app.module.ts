@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './modales/auth/auth.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthComponent,
     DashboardComponent,
     SidebarComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
