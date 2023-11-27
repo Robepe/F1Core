@@ -1,8 +1,27 @@
 const express = require('express');
-const port = 4000;
+const cors = require('cors')
 
 const app = express();
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+var corsOption = {
+  origin: "http://localhost:4202"
+};
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({extended: true}));
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Bienvenido a F1Core"})
+});
+
+//require("./routes/tutorial.routes.js")(app);
+
+// set port, listen for requests
+const PORT = process.env.PORT || 9000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
