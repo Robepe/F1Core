@@ -11,11 +11,20 @@ var corsOption = {
 app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
+
+// const db = require("./models");
+// db.sequelize.sync()
+//   .then(() => {
+//     console.log("Synced db.");
+//   })
+//   .catch((err) => {
+//     console.log("Failed to sync db: " + err.message);    --> EJECUTAR EN F1Core.db cuando sea disponible
+//   });
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Bienvenido a F1Core"}) // Ruta de prueba (OK)
+  res.json({ message: "Bienvenido a F1Core" }) // Ruta de prueba (OK)
 });
 
 // set port, listen for requests
