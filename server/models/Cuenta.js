@@ -27,6 +27,18 @@ module.exports = (sequelize, DataTypes) => {
 	}, {});
 	Cuenta.associate = function (models) {
 		// definir asociaciones
+		// Equipo.hasMany(models.ParticipacionTemporada, {
+		// 	foreignKey: 'equipoID',
+		// 	as: 'participaciones'
+		// });
+		// Equipo.belongsTo(models.Piloto, {
+		// 	foreignKey: 'driver1_id',
+		// 	as: 'piloto1'
+		// });
+		// Equipo.belongsTo(models.Piloto, {
+		// 	foreignKey: 'driver2_id',
+		// 	as: 'piloto2'
+		// });
 	};
 	return Cuenta;
 };
