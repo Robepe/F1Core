@@ -45,11 +45,51 @@ module.exports = (sequelize) => {
       type: DataTypes.TIME,
       allowNull: true,
     },
-    // Añadir el resto de los campos según sea necesario
+    fp2_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    fp2_time: {
+      type: DataTypes.TIME,
+      allowNull: true,
+    },
+    fp3_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    fp3_time: {
+      type: DataTypes.TIME,
+      allowNull: true,
+    },
+    quali_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    quali_time: {
+      type: DataTypes.TIME,
+      allowNull: true,
+    },
+    sprint_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    sprint_time: {
+      type: DataTypes.TIME,
+      allowNull: true,
+    },
   });
 
   Races.associate = (models) => {
-    // Asociaciones aquí
+    Races.belongsTo(Seasons, {
+      foreignKey: 'year', // Nombre de la columna en la tabla races
+      targetKey: 'year'  // Nombre de la columna en la tabla seasons
+      //as: 'season',       // Alias opcional para la relación
+    });
+
+    Races.belongsTo(Circuits, {
+      foreignKey: 'circuitId',
+      targetKey: 'circuitId'
+    });
   };
 
   return Races;
