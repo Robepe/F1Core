@@ -1,10 +1,9 @@
 const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.DB_USER, dbConfig.DB_PASSWORD, {
+    host: dbConfig.DB_HOST,
     dialect: dbConfig.dialect,
-    operatorsAliases: false,
 
     pool: {
         max: dbConfig.pool.max,
@@ -19,21 +18,21 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
-// db.accounts = require("./accounts.model.js")(sequelize, Sequelize);
-// db.circuits = require("./circuits.model.js")(sequelize, Sequelize);
-// db.constructorResults = require("./constructorResults.model.js")(sequelize, Sequelize);
-// db.constructorStandings = require("./constructorStandings.model.js")(sequelize, Sequelize);
-// db.constructors = require("./constructors.model.js")(sequelize, Sequelize);
-// db.driverStandings = require("./driverStandings.model.js")(sequelize, Sequelize);
-// db.drivers = require("./drivers.model.js")(sequelize, Sequelize);
-// db.lapTimes = require("./lapTimes.model.js")(sequelize, Sequelize);
-// db.pitStops = require("./pitStops.model.js")(sequelize, Sequelize);
-// db.qualifying = require("./qualifying.model.js")(sequelize, Sequelize);
-// db.races = require("./races.model.js")(sequelize, Sequelize);
-// db.results = require("./results.model.js")(sequelize, Sequelize);
-// db.seasons = require("./seasons.model.js")(sequelize, Sequelize);
-// db.sprintResults = require("./sprintResults.model.js")(sequelize, Sequelize);
-// db.status = require("./status.model.js")(sequelize, Sequelize);
+db.tutorials = require("./tutorial.js")(sequelize, Sequelize);
+//db.accounts = require("./Accounts.js")(sequelize, Sequelize);
+// db.circuits = require("./Circuits.js")(sequelize, Sequelize);
+// db.constructorResults = require("./ConstructorResults.js")(sequelize, Sequelize);
+// db.constructorStandings = require("./ConstructorStandings.js")(sequelize, Sequelize);
+// db.constructors = require("./Constructors.js")(sequelize, Sequelize);
+// db.driverStandings = require("./DriverStandings.js")(sequelize, Sequelize);
+// db.drivers = require("./Drivers.js")(sequelize, Sequelize);
+// db.lapTimes = require("./LapTimes.js")(sequelize, Sequelize);
+// db.pitStops = require("./PitStops.js")(sequelize, Sequelize);
+// db.qualifying = require("./Qualifying.js")(sequelize, Sequelize);
+// db.races = require("./Races.js")(sequelize, Sequelize);
+// db.results = require("./Results.js")(sequelize, Sequelize);
+// db.seasons = require("./Seasons.js")(sequelize, Sequelize);
+// db.sprintResults = require("./SprintResults.js")(sequelize, Sequelize);
+// db.status = require("./Status.js")(sequelize, Sequelize);
 
 module.exports = db;

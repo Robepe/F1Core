@@ -13,14 +13,14 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// const db = require("./models");
-// db.sequelize.sync()
-//   .then(() => {
-//     console.log("Synced db.");
-//   })
-//   .catch((err) => {
-//     console.log("Failed to sync db: " + err.message);    --> EJECUTAR EN F1Core.db cuando sea disponible
-//   });
+const db = require("./models");
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
 
 // simple route
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 9000;
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+const DB_PORT = process.env.DB_PORT || 9000;
+app.listen(DB_PORT, () => {
+  console.log(`Server started on port ${DB_PORT}`);
 });
