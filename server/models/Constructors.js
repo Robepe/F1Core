@@ -30,6 +30,7 @@ module.exports = (sequelize) => {
   Constructors.associate = (models) => {
     Constructors.hasMany(models.ConstructorStandings, {
       foreignKey: 'constructorId',
+      targetKey: 'constructorId'
     });
   };
   

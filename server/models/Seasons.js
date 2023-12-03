@@ -14,9 +14,5 @@ module.exports = (sequelize) => {
     },
   });
 
-  Seasons.associate = (models) => {
-    // Asociaciones aquí
-  };
-
   return Seasons;
 };

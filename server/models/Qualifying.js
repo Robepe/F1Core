@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const { Races, Drivers, Constructors } = require('./models');
 
 module.exports = (sequelize) => {
   const Qualifying = sequelize.define('Qualifying', {
@@ -43,7 +44,18 @@ module.exports = (sequelize) => {
   });
 
   Qualifying.associate = (models) => {
-    // Asociaciones aquí
+    Qualifying.belongsTo(Races, {
+      foreignKey: 'circuitId',
+      targetKey: 'circuitId'
+    });
+    Qualifying.belongsTo(Drivers, {
+      foreignKey: 'driverId',
+      targetKey: 'driverId'
+    });
+    Qualifying.belongsTo(Constructors, {
+      foreignKey: 'constructorId',
+      targetKey: 'constructorId'
+    });
   };
 
   return Qualifying;

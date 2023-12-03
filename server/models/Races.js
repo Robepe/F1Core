@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const { Seasons, Circuits } = require('./models');
 
 module.exports = (sequelize) => {
   const Races = sequelize.define('Races', {
@@ -83,7 +84,7 @@ module.exports = (sequelize) => {
     Races.belongsTo(Seasons, {
       foreignKey: 'year', // Nombre de la columna en la tabla races
       targetKey: 'year'  // Nombre de la columna en la tabla seasons
-      //as: 'season',       // Alias opcional para la relación
+      //as: 'season',   // Alias opcional para la relación
     });
 
     Races.belongsTo(Circuits, {

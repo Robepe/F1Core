@@ -43,9 +43,5 @@ module.exports = (sequelize) => {
     },
   });
 
-  Circuit.associate = (models) => {
-    // Asociaciones aquí
-  };
-
   return Circuit;
 };

@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const { Races, Drivers } = require('./models');
 
 module.exports = (sequelize) => {
   const PitStop = sequelize.define('PitStop', {
@@ -36,7 +37,18 @@ module.exports = (sequelize) => {
   });
 
   PitStop.associate = (models) => {
-    // Asociaciones aquí
+    PitStop.belongsTo(Races, {
+      foreignKey: 'circuitId',
+      targetKey: 'circuitId'
+    });
+    PitStop.belongsTo(Drivers, {
+      foreignKey: 'driverId',
+      targetKey: 'driverId'
+    });
+    PitStop.belongsTo(Constructors, {
+      foreignKey: 'constructorId',
+      targetKey: 'constructorId'
+    });
   };
 
   return PitStop;

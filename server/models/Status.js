@@ -14,9 +14,5 @@ module.exports = (sequelize) => {
     },
   });
 
-  Status.associate = (models) => {
-    // Asociaciones aquí
-  };
-
   return Status;
 };

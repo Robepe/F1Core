@@ -46,6 +46,7 @@ module.exports = (sequelize) => {
   Drivers.associate = (models) => {
     Drivers.hasMany(models.DriverStandings, {
       foreignKey: 'driverId',
+      targetKey: 'driverId'
     });
   };
   

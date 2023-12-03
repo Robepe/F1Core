@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const { Races, Drivers } = require('./models');
 
 module.exports = (sequelize) => {
   const LapTimes = sequelize.define('LapTimes', {
@@ -32,15 +33,15 @@ module.exports = (sequelize) => {
   });
 
   LapTimes.associate = (models) => {
-    LapTimes.belongsTo(models.Races, {
-      foreignKey: 'raceId',
+    LapTimes.belongsTo(Races, {
+      foreignKey: 'circuitId',
+      targetKey: 'circuitId'
     });
-  
-    LapTimes.belongsTo(models.Drivers, {
+    LapTimes.belongsTo(Drivers, {
       foreignKey: 'driverId',
+      targetKey: 'driverId'
     });
   };
   
-
   return LapTimes;
 };
