@@ -27,6 +27,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Bienvenido a F1Core" }) // Ruta de prueba (OK)
 });
 
+// routes
+require("./routes/tutorial.routes")(app);
+
 // set port, listen for requests
 const DB_PORT = process.env.DB_PORT || 9000;
 app.listen(DB_PORT, () => {
