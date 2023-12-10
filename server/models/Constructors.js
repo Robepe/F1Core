@@ -33,7 +33,6 @@ module.exports = (sequelize) => {
       targetKey: 'constructorId'
     });
   };
-  
 
   return Constructors;
 };

@@ -1,4 +1,4 @@
-const { Constructors, Drivers } = require('./models');
+const { Constructors, Drivers } = require('./');
 
 module.exports = (sequelize, DataTypes) => {
 	const Account = sequelize.define('Account', {
@@ -30,11 +30,11 @@ module.exports = (sequelize, DataTypes) => {
 		Account.hasOne(Drivers, {
 			foreignKey: 'circuitId',
 			targetKey: 'circuitId'
-		  });
-		  Account.hasOne(Constructors, {
+		});
+		Account.hasOne(Constructors, {
 			foreignKey: 'driverId',
 			targetKey: 'driverId'
-		  });
+		});
 	};
 	return Account;
 };

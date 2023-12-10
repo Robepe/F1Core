@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { Races, Drivers, Constructors } = require('./models');
+const { Races, Drivers, Constructors } = require('./');
 
 module.exports = (sequelize) => {
   const Qualifying = sequelize.define('Qualifying', {

@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { Races, Drivers } = require('./models');
+const { Races, Drivers } = require('./');
 
 module.exports = (sequelize) => {
   const LapTimes = sequelize.define('LapTimes', {
@@ -42,6 +42,6 @@ module.exports = (sequelize) => {
       targetKey: 'driverId'
     });
   };
-  
+
   return LapTimes;
 };

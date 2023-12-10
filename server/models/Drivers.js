@@ -49,6 +49,6 @@ module.exports = (sequelize) => {
       targetKey: 'driverId'
     });
   };
-  
+
   return Drivers;
 };
