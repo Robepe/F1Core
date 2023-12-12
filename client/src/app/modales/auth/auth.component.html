@@ -1,6 +1,12 @@
-<div class="modal-header">
-    <h4 class="modal-title">Iniciar Sesión</h4>
+<div class="tabs">
+  <button type="submit" class="btn btn-danger" (click)="currentTab = 'sign_in'">Iniciar Sesión</button>
+  <button type="submit" class="btn btn-danger" (click)="currentTab = 'sign_up'">Registrarse</button>  <!--aplicar i18n-->
+</div>
+
+  <div class="modal-header">
+    <h4 class="modal-title">Iniciar Sesión</h4> <!--aplicar i18n-->
   </div>
+
   <div class="modal-body">
     <!-- <form (ngSubmit)="onSubmit()"> -->
     <form>

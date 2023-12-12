@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AuthComponent {
   constructor(private authService: AuthService) { }
 
-  // tabs = "sign_in" | "sign_up" = "sign_in";
+  currentTab: 'sign_in' | 'sign_up' = 'sign_in';
 
   login(username: string, password: string): void {
     const isAuthenticated = this.authService.login(username, password);
