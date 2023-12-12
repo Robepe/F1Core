@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	}, {});
 	Account.associate = function (models) {
-		Account.hasOne(Drivers, {
+		Account.hasOne(models.Drivers, {
 			foreignKey: 'circuitId',
 			targetKey: 'circuitId'
 		});

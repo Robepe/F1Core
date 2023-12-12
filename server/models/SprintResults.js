@@ -12,26 +12,14 @@ module.exports = (sequelize) => {
         raceId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Races,
-                key: 'raceId',
-            },
         },
         driverId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Drivers,
-                key: 'driverId',
-            },
         },
         constructorId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Constructors,
-                key: 'constructorId',
-            },
         },
         number: {
             type: DataTypes.INTEGER,
@@ -75,23 +63,19 @@ module.exports = (sequelize) => {
         statusId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Status,
-                key: 'statusId',
-            },
         },
     });
 
     SprintResults.associate = (models) => {
-        SprintResults.belongsTo(Races, {
+        SprintResults.belongsTo(models.Races, {
             foreignKey: 'raceId',
             targetKey: 'raceId'
         });
-        SprintResults.belongsTo(Drivers, {
+        SprintResults.belongsTo(models.Drivers, {
             foreignKey: 'driverId',
             targetKey: 'driverId'
         });
-        SprintResults.belongsTo(Constructors, {
+        SprintResults.belongsTo(models.Constructors, {
             foreignKey: 'constructorId',
             targetKey: 'constructorId'
         });
