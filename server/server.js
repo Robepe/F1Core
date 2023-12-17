@@ -32,6 +32,7 @@ require("./routes/tutorial.routes")(app);
 require("./routes/account.routes")(app);
 require("./routes/circuit.routes")(app);
 require("./routes/constructorResults.routes")(app);
+require("./routes/constructorStandings.routes")(app);
 
 // set port, listen for requests
 const DB_PORT = process.env.DB_PORT || 9000;
