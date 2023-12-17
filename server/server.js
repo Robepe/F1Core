@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 
 // routes
 require("./routes/tutorial.routes")(app);
-// require("./routes/account.routes")(app);
+require("./routes/account.routes")(app);
 
 // set port, listen for requests
 const DB_PORT = process.env.DB_PORT || 9000;

@@ -7,14 +7,14 @@ const itemsLimit = 20;
 // Create and Save a new Account
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.username || !req.body.email || !req.body.password) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     };
 
-    // Create a Account
+    // Create an Account
     const account = {
         username: req.body.username,
         email: req.body.email,
@@ -140,16 +140,16 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-// Find all published Accounts
-//exports.findAllPublished = (req, res) => {
-//    Account.findAll({ limit: itemsLimit, where: { published: true } })
-//        .then(data => {
-//            res.send(data);
-//        })
-//        .catch(err => {
-//            res.status(500).send({
-//                message:
-//                    err.message || "Some error occurred while retrieving Accounts."
-//            });
-//        });
-//};
+// Find all Admin accounts
+exports.findAllAdmin = (req, res) => {
+    Account.findAll({ limit: itemsLimit, where: { admin: true } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving accounts."
+            });
+        });
+};
