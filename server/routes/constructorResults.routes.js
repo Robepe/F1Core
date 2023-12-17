@@ -3,19 +3,19 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    // Create a new Circuit
+    // Create a new ConstructorResult
     router.post("/", constructorResults.create);
 
-    // Retrieve all Circuits
+    // Retrieve all ConstructorResults
     router.get("/", constructorResults.findAll);
 
-    // Retrieve a single Circuit with id
+    // Retrieve a single ConstructorResult with id
     router.get("/:id", constructorResults.findOne);
 
-    // Update a Circuit with id
+    // Update a ConstructorResult with id
     router.put("/:id", constructorResults.update);
 
-    // Delete a Circuit with id
+    // Delete a ConstructorResult with id
     router.delete("/:id", constructorResults.delete);
 
     // Delete all Accounts
