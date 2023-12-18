@@ -1,145 +1,145 @@
 const db = require("../models");
-const Laptime = db.laptimes;
+const Qualifying = db.qualifyings;
 const Op = db.Sequelize.Op;
 
 const itemsLimit = 20;
 
-// Create and Save a new Laptime
+// Create and Save a new Qualifying
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.driverRef || !req.body.forename || !req.body.surname || !req.body.url) {
+    if (!req.body.raceId || !req.body.driverId || !req.body.constructorId || !req.body.number) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     };
 
-    // Create a Laptime
-    const laptime = {
-        driverRef: req.body.driverRef,
+    // Create a Qualifying
+    const qualifying = {
+        raceId: req.body.raceId,
+        driverId: req.body.driverId,
+        constructorId: req.body.constructorId,
         number: req.body.number,
-        code: req.body.code,
-        forename: req.body.forename,
-        surname: req.body.surname,
-        dob: req.body.dob,
-        nationality: req.body.nationality,
-        url: req.body.url
+        position: req.body.position,
+        q1: req.body.q1,
+        q2: req.body.q2,
+        q3: req.body.q3
     };
 
-    // Save Laptime in the database
-    Laptime.create(laptime)
+    // Save Qualifying in the database
+    Qualifying.create(qualifying)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the Laptime."
+                    err.message || "Some error occurred while creating the Qualifying."
             });
         });
 };
 
-// Retrieve all Laptimes from the database.
+// Retrieve all Qualifyings from the database.
 exports.findAll = (req, res) => {
     const username = req.query.username;
     var condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
 
-    Laptime.findAll({ limit: itemsLimit, where: condition })
+    Qualifying.findAll({ limit: itemsLimit, where: condition })
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving Laptimes."
+                    err.message || "Some error occurred while retrieving Qualifyings."
             });
         });
 };
 
-// Find a single Laptime with an id
+// Find a single Qualifying with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Laptime.findByPk(id)
+    Qualifying.findByPk(id)
         .then(data => {
             if (data) {
                 res.send(data);
             } else {
                 res.status(404).send({
-                    message: `Cannot find Laptime with id=${id}.`
+                    message: `Cannot find Qualifying with id=${id}.`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving Laptime with id=" + id
+                message: "Error retrieving Qualifying with id=" + id
             });
         });
 };
 
-// Update a Laptime by the id in the request
+// Update a Qualifying by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Laptime.update(req.body, {
-        where: { laptimeId: id }
+    Qualifying.update(req.body, {
+        where: { qualifyingId: id }
     })
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: "Laptime was updated successfully."
+                    message: "Qualifying was updated successfully."
                 });
             } else {
                 res.send({
-                    message: `Cannot update Laptime with id=${id}. Maybe Laptime was not found or req.body is empty!`
+                    message: `Cannot update Qualifying with id=${id}. Maybe Qualifying was not found or req.body is empty!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating Laptime with id=" + id
+                message: "Error updating Qualifying with id=" + id
             });
         });
 };
 
-// Delete a Laptime with the specified id in the request
+// Delete a Qualifying with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Laptime.destroy({
-        where: { laptimeId: id }
+    Qualifying.destroy({
+        where: { qualifyingId: id }
     })
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: "Laptime was deleted successfully!"
+                    message: "Qualifying was deleted successfully!"
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Laptime with id=${id}. Maybe Laptime was not found!`
+                    message: `Cannot delete Qualifying with id=${id}. Maybe Qualifying was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Laptime with id=" + id
+                message: "Could not delete Qualifying with id=" + id
             });
         });
 };
 
-// Delete all Laptimes from the database.
+// Delete all Qualifyings from the database.
 exports.deleteAll = (req, res) => {
-    Laptime.destroy({
+    Qualifying.destroy({
         where: {},
         truncate: false
     })
         .then(nums => {
-            res.send({ message: `${nums} Laptimes were deleted successfully!` });
+            res.send({ message: `${nums} Qualifyings were deleted successfully!` });
         })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while removing all Laptimes."
+                    err.message || "Some error occurred while removing all Qualifyings."
             });
         });
 };
