@@ -16,6 +16,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { PilotsComponent } from './components/pilots/pilots.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { ResultsComponent } from './components/results/results.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PilotsComponent,
     TeamsComponent,
     ResultsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
