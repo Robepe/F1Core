@@ -17,6 +17,7 @@ import { PilotsComponent } from './components/pilots/pilots.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { ResultsComponent } from './components/results/results.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TeamsComponent,
     ResultsComponent,
     NavbarComponent,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,
