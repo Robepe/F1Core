@@ -10,7 +10,8 @@ import { map, takeWhile } from 'rxjs/operators';
 
 export class CountdownComponent implements OnInit {
   fechaObjetivo: Date = new Date('2023-12-31T23:59:59');
-  tiempoRestante: number = 0; // inicializado con un valor predeterminado
+  tiempoRestante: number = 0;
+  tiempoFormateado: string = '';
   private intervalo$: Observable<number>;
 
   constructor() {
@@ -24,19 +25,25 @@ export class CountdownComponent implements OnInit {
     );
 
     this.intervalo$.subscribe(tiempoRestante => {
-      this.tiempoRestante = tiempoRestante; // actualiza el valor de tiempoRestante
-      const dias = Math.floor(tiempoRestante / (60 * 60 * 24));
-      const horas = Math.floor((tiempoRestante % (60 * 60 * 24)) / (60 * 60));
-      const minutos = Math.floor((tiempoRestante % (60 * 60)) / 60);
-      const segundos = tiempoRestante % 60;
-
-      console.log(`${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`);
+      this.tiempoRestante = tiempoRestante;
+      // Actualizamos la propiedad formateada para mostrar en la plantilla
+      this.actualizarTiempoFormateado();
     });
   }
 
   private calcularTiempoRestante(): number {
     const ahora = new Date().getTime();
-    const tiempoRestante = Math.floor((this.fechaObjetivo.getTime() - ahora) / 1000);
-    return tiempoRestante;
+    return Math.floor((this.fechaObjetivo.getTime() - ahora) / 1000);
+  }
+
+  // Método para actualizar el tiempo formateado
+  private actualizarTiempoFormateado(): void {
+    const dias = Math.floor(this.tiempoRestante / (60 * 60 * 24));
+    const horas = Math.floor((this.tiempoRestante % (60 * 60 * 24)) / (60 * 60));
+    const minutos = Math.floor((this.tiempoRestante % (60 * 60)) / 60);
+    const segundos = this.tiempoRestante % 60;
+
+    // Crear una cadena formateada y asignarla a una propiedad para mostrar en la plantilla
+    this.tiempoFormateado = `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
   }
 }
