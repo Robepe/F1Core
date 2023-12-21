@@ -13,7 +13,13 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors(corsOption));
+// Configuración CORS
+app.use(cors({
+  origin: 'http://localhost:4200',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+}));
 
 const db = require("./models");
 db.sequelize.sync()
@@ -23,11 +29,6 @@ db.sequelize.sync()
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
   });
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Bienvenido a F1Core" }) // Ruta de prueba (OK)
-});
 
 // routes
 require("./routes/tutorial.routes")(app);
