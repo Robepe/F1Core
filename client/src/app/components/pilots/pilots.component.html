@@ -2,13 +2,13 @@
 <h3 class="text-dark">Pilotos</h3>
 <br />
 <div class="d-flex justify-content-end">
-  <button type="button" class="btn btn-danger ml-auto" (click)="createNewDriver()">➕</button>
+  <button type="button" class="btn btn-danger ml-auto" (click)="addDriver()">➕</button>
 </div>
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">DriverID</th>
-      <th scope="col">DriverRef</th>
+      <!--<th scope="col">DriverRef</th>-->
       <th scope="col">Number</th>
       <th scope="col">Code</th>
       <th scope="col">Forename</th>
@@ -22,17 +22,17 @@
   <tbody>
     <tr *ngFor="let driver of drivers" (click)="mostrarDetalles(driver)">
       <td>{{ driver.driverId }}</td>
-      <td>{{ driver.driverRef }}</td>
+      <!--<td>{{ driver.driverRef }}</td>-->
       <td>{{ driver.number }}</td>
       <td>{{ driver.code }}</td>
       <td>{{ driver.forename }}</td>
       <td>{{ driver.surname }}</td>
-      <td>{{ driver.dob }}</td>
+      <td>{{ driver.dob | date:'dd/MM/yyyy' }}</td>
       <td>{{ driver.nationality }}</td>
       <td>{{ driver.url }}</td>
       <td><button type="button" class="btn btn-outline-danger" (click)="deleteNewDriver()">
-        <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
-      </button></td>
+          <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
+        </button></td>
     </tr>
   </tbody>
 </table>

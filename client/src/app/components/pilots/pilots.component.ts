@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DriverService } from 'src/app/services/drivers/driver-service.service';
+import { Location } from '@angular/common';
 
 import { AddDriverComponent } from '../../modales/drivers/add-driver/add-driver.component';
 import { DetailDriverComponent } from '../../modales/drivers/detail-driver/detail-driver.component';
@@ -12,10 +13,8 @@ import { DetailDriverComponent } from '../../modales/drivers/detail-driver/detai
 })
 export class PilotsComponent implements OnInit {
     drivers: any[] = [];
-    showFormulario = false;
-    newDriver: any = {};
 
-    constructor(private driverService: DriverService, private modalService: NgbModal) { };
+    constructor(private driverService: DriverService, private modalService: NgbModal, private location: Location) { };
 
     ngOnInit(): void {
         this.getDrivers();
@@ -33,10 +32,29 @@ export class PilotsComponent implements OnInit {
         // Aquí puedes abrir un modal o realizar otras acciones según tus necesidades.
     }
 
-    createNewDriver(): void {
-        this.modalService.open(AddDriverComponent, { ariaLabelledBy: 'modal-basic-title' });
-        // console.log(`Nuevo Driver: ${JSON.stringify(this.newDriver)}`);
-        // Aquí deberías llamar al servicio para crear un nuevo conductor.
+    addDriver(): void {
+        const modalRef = this.modalService.open(AddDriverComponent, { ariaLabelledBy: 'modal-basic-title' });
+
+        modalRef.result.then(
+            (newDriver) => {
+                if (newDriver) {
+                    console.log("newDriver", newDriver)
+                    // Aquí puedes llamar al servicio para crear un nuevo conductor.
+                    this.driverService.addDriver(newDriver).subscribe(
+                        (createdDriver) => {
+                            console.log('Nuevo Driver creado:', createdDriver);
+                            this.getDrivers();
+                        },
+                        (error) => {
+                            console.error('Error al crear el Driver:', error);
+                        }
+                    );
+                }
+            },
+            (reason) => {
+                // Manejar el cierre del modal sin datos (si es necesario)
+            }
+        );
     }
 
     deleteNewDriver(): void {

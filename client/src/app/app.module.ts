@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -56,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     NgbModule,
+    FormsModule
   ],
   bootstrap: [
     AppComponent
