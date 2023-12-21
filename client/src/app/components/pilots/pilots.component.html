@@ -1,35 +1,32 @@
-<!--<h1 class="display-1 text-light" id="header" [translate]="'header.welcome'"></h1>-->
-<!--<h1 class="display-6 text-dark">Pilotos</h1>-->
-<br/>
+<br />
 <h3 class="text-dark">Pilotos</h3>
-<br/>
-<br/>
+<br />
+<br />
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">DriverID</th>
+      <th scope="col">DriverRef</th>
+      <th scope="col">Number</th>
+      <th scope="col">Code</th>
+      <th scope="col">Forename</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Dob</th>
+      <th scope="col">nationality</th>
+      <th scope="col">url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let driver of drivers">
+      <td>{{ driver.driverId }}</td>
+      <td>{{ driver.driverRef }}</td>
+      <td>{{ driver.number }}</td>
+      <td>{{ driver.code }}</td>
+      <td>{{ driver.forename }}</td>
+      <td>{{ driver.surname }}</td>
+      <td>{{ driver.dob }}</td>
+      <td>{{ driver.nationality }}</td>
+      <td>{{ driver.url }}</td>
+    </tr>
+  </tbody>
+</table>
