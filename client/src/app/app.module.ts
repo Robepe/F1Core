@@ -18,6 +18,8 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { ResultsComponent } from './components/results/results.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
+import { DetailDriverComponent } from './modales/drivers/detail-driver/detail-driver.component';
+import { AddDriverComponent } from './modales/drivers/add-driver/add-driver.component';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -38,6 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ResultsComponent,
     NavbarComponent,
     CountdownComponent,
+    DetailDriverComponent,
+    AddDriverComponent,
   ],
   imports: [
     BrowserModule,

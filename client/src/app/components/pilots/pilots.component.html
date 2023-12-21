@@ -1,7 +1,9 @@
 <br />
 <h3 class="text-dark">Pilotos</h3>
 <br />
-<br />
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-danger ml-auto" (click)="createNewDriver()">➕</button>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -14,6 +16,7 @@
       <th scope="col">Dob</th>
       <th scope="col">nationality</th>
       <th scope="col">url</th>
+      <th scope="col">opt</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +30,9 @@
       <td>{{ driver.dob }}</td>
       <td>{{ driver.nationality }}</td>
       <td>{{ driver.url }}</td>
+      <td><button type="button" class="btn btn-outline-danger" (click)="deleteNewDriver()">
+        <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
+      </button></td>
     </tr>
   </tbody>
 </table>
