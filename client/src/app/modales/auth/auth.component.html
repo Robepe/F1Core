@@ -1,8 +1,10 @@
 <div class="tabs">
-  <button type="submit" class="btn btn-danger" (click)="currentTab = 'sign_in'">Iniciar Sesión</button>
-  <button type="submit" class="btn btn-danger" (click)="currentTab = 'sign_up'">Registrarse</button>  <!--aplicar i18n-->
+  <button type="submit" class="btn btn-danger tab-button" (click)="currentTab = 'sign_in'">Iniciar Sesión</button>
+  <button type="submit" class="btn btn-danger tab-button" (click)="currentTab = 'sign_up'">Registrarse</button> <!--aplicar i18n-->
 </div>
 
+<!--INICIO SESION-->
+<div *ngIf="currentTab === 'sign_in'">
   <div class="modal-header">
     <h4 class="modal-title">Iniciar Sesión</h4> <!--aplicar i18n-->
   </div>
@@ -23,4 +25,38 @@
       <button type="submit" class="btn btn-danger">Iniciar Sesión</button>
     </form>
   </div>
-  
+</div>
+
+<!--REGISTRO-->
+<div *ngIf="currentTab === 'sign_up'">
+  <div class="modal-header">
+    <h4 class="modal-title">Registrarse</h4> <!--aplicar i18n-->
+  </div>
+
+  <div class="modal-body">
+    <!-- <form (ngSubmit)="onSubmit()"> -->
+    <form>
+      <div class="mb-3">
+        <label for="username" class="form-label">Nombre de usuario:</label>
+        <!-- <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required> -->
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Correo electronico:</label>
+        <!-- <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required> -->
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña:</label>
+        <!-- <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required> -->
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Repetir Contraseña:</label>
+        <!-- <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required> -->
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-danger">Registrarse</button>
+    </form>
+  </div>
+</div>
