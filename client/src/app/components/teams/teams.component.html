@@ -1,1 +1,29 @@
-<p>teams works!</p>
+<br />
+<h3 class="text-dark">Equipos</h3>
+<br />
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-danger ml-auto" (click)="addConstructor()">➕</button>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ConstructorID</th>
+      <!--<th scope="col">ConstructorRef</th>-->
+      <th scope="col">Nombre</th>
+      <th scope="col">Nacionalidad</th>
+      <th scope="col">Url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let constructor of constructors" (click)="mostrarDetalles(constructor)">
+      <td>{{ constructor.constructorId }}</td>
+      <!--<td>{{ constructor.constructorRef }}</td>-->
+      <td>{{ constructor.name }}</td>
+      <td>{{ constructor.nationality }}</td>
+      <td>{{ constructor.url }}</td>
+      <td><button type="button" class="btn btn-outline-danger" (click)="deleteConstructor()">
+          <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
+        </button></td>
+    </tr>
+  </tbody>
+</table>

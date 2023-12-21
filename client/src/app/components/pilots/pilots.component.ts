@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DriverService } from 'src/app/services/drivers/driver-service.service';
-import { Location } from '@angular/common';
 
 import { AddDriverComponent } from '../../modales/drivers/add-driver/add-driver.component';
 import { DetailDriverComponent } from '../../modales/drivers/detail-driver/detail-driver.component';
@@ -14,7 +13,7 @@ import { DetailDriverComponent } from '../../modales/drivers/detail-driver/detai
 export class PilotsComponent implements OnInit {
     drivers: any[] = [];
 
-    constructor(private driverService: DriverService, private modalService: NgbModal, private location: Location) { };
+    constructor(private driverService: DriverService, private modalService: NgbModal) { };
 
     ngOnInit(): void {
         this.getDrivers();

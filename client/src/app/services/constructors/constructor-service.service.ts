@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DriverService {
-  private apiUrl = 'http://localhost:4201/api/constructors';
+export class ConstructorService {
+  private apiUrl = 'http://localhost:4201/api/constructor';
 
   constructor(private http: HttpClient) {}
 
@@ -18,9 +18,9 @@ export class DriverService {
     return this.http.post<any>(this.apiUrl, constructor);
   }
 
-  updateConstructor(constructorId: number, updatedDriver: any): Observable<any> {
+  updateConstructor(constructorId: number, updatedConstructor: any): Observable<any> {
     const url = `${this.apiUrl}/${constructorId}`;
-    return this.http.put<any>(url, updatedDriver);
+    return this.http.put<any>(url, updatedConstructor);
   }
 
   deleteConstructor(constructorId: number): Observable<any> {
