@@ -19,7 +19,7 @@ export class PilotsComponent implements OnInit {
         this.getDrivers();
         this.driverService.getUpdateEvent().subscribe(() => {
             this.getDrivers();
-          });
+        });
     }
 
     getDrivers(): void {
@@ -58,7 +58,16 @@ export class PilotsComponent implements OnInit {
         );
     }
 
-    deleteNewDriver(): void {
-        console.log("GUAYANDO");
+    deleteDriver(driverId: number): void {
+        this.driverService.deleteDriver(driverId)
+            .subscribe(
+                response => {
+                    console.log('Conductor eliminado con éxito:', response);
+                    this.getDrivers()
+                },
+                error => {
+                    console.error('Error al eliminar conductor:', error);
+                }
+            );
     }
 }

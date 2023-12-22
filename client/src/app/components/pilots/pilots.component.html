@@ -29,7 +29,7 @@
       <td>{{ driver.dob | date:'dd/MM/yyyy' }}</td>
       <td>{{ driver.nationality }}</td>
       <td>{{ driver.url }}</td>
-      <td><button type="button" class="btn btn-outline-danger" (click)="deleteNewDriver()">
+      <td><button type="button" class="btn btn-outline-danger" (click)="deleteDriver(driver.driverId)">
           <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
         </button></td>
     </tr>
