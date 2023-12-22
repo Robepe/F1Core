@@ -8,7 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddConstructorComponent {
   newConstructor: any = {
-    constructorRef: 0,
+    constructorRef: '',
     name:'',
     nationality: '',
     url: ''
