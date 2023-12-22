@@ -17,6 +17,9 @@ export class TeamsComponent implements OnInit{
 
     ngOnInit(): void {
         this.getConstructors();
+        this.constructorService.getUpdateEvent().subscribe(() => {
+            this.getConstructors();
+        });
     }
 
     getConstructors(): void {
@@ -26,9 +29,8 @@ export class TeamsComponent implements OnInit{
     }
 
     mostrarDetalles(constructor: any): void {
-        console.log(`Detalles del equipo: ${JSON.stringify(constructor)}`);
-        this.modalService.open(DetailConstructorComponent, { ariaLabelledBy: 'modal-basic-title' });
-        // Aquí puedes abrir un modal o realizar otras acciones según tus necesidades.
+        const modalRef = this.modalService.open(DetailConstructorComponent, { size: 'l' });
+        modalRef.componentInstance.constructorData = constructor;
     }
 
     addConstructor(): void {
@@ -38,7 +40,6 @@ export class TeamsComponent implements OnInit{
             (newConstructor) => {
                 if (newConstructor) {
                     console.log("newConstructor", newConstructor)
-                    // Aquí puedes llamar al servicio para crear un nuevo conductor.
                     this.constructorService.addConstructor(newConstructor).subscribe(
                         (createdConstructor) => {
                             console.log('Nuevo Constructor creado:', createdConstructor);
@@ -56,7 +57,16 @@ export class TeamsComponent implements OnInit{
         );
     }
 
-    deleteConstructor(): void {
-        console.log("GUAYANDO");
+    deleteConstructor(constructorId: number): void {
+        this.constructorService.deleteConstructor(constructorId)
+            .subscribe(
+                response => {
+                    console.log('Conductor eliminado con éxito:', response);
+                    this.getConstructors()
+                },
+                error => {
+                    console.error('Error al eliminar conductor:', error);
+                }
+            );
     }
 }

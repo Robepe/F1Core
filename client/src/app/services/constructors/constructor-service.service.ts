@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConstructorService {
   private apiUrl = 'http://localhost:4201/api/constructor';
+  private updateSubject = new Subject<void>();
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +27,13 @@ export class ConstructorService {
   deleteConstructor(constructorId: number): Observable<any> {
     const url = `${this.apiUrl}/${constructorId}`;
     return this.http.delete<any>(url);
+  }
+
+  emitUpdateEvent(): void {
+    this.updateSubject.next();
+  }
+
+  getUpdateEvent(): Observable<void> {
+    return this.updateSubject.asObservable();
   }
 }

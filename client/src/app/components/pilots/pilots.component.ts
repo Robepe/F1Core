@@ -40,7 +40,6 @@ export class PilotsComponent implements OnInit {
             (newDriver) => {
                 if (newDriver) {
                     console.log("newDriver", newDriver)
-                    // Aquí puedes llamar al servicio para crear un nuevo conductor.
                     this.driverService.addDriver(newDriver).subscribe(
                         (createdDriver) => {
                             console.log('Nuevo Driver creado:', createdDriver);

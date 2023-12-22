@@ -1,1 +1,24 @@
-<p>detail-constructor works!</p>
+<div class="modal-header">
+    <h4 class="modal-title">Detalles del piloto</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <p>Nombre: </p>
+        <input [(ngModel)]="editedConstructor.name" placeholder="Nombre">
+    </div>
+    <div>
+        <p>Apellido: </p>
+        <input [(ngModel)]="editedConstructor.nationality" placeholder="Nacionalidad">
+    </div>
+    <div>
+        <p>Número: </p>
+        <input [(ngModel)]="editedConstructor.url" placeholder="Url">
+    </div>
+    <div>
+        <p>Prefijo: </p>
+        <input [(ngModel)]="editedConstructor.contrustorRef" placeholder="Referencia">
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
+</div>

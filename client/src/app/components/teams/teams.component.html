@@ -20,7 +20,7 @@
       <td>{{ constructor.name }}</td>
       <td>{{ constructor.nationality }}</td>
       <td>{{ constructor.url }}</td>
-      <td><button type="button" class="btn btn-outline-danger" (click)="deleteConstructor()">
+      <td><button type="button" class="btn btn-outline-danger" (click)="deleteConstructor(constructor.constructorId)">
           <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
         </button></td>
     </tr>
