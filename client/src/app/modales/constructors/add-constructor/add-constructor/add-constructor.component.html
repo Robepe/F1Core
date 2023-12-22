@@ -1,31 +1,29 @@
-<div class="modal-dialog" style="width: 800px;">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Crear Equipo</h4>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newConstructor.name"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label for="nationality" class="form-label">Nacionalidad:</label>
-                    <input type="text" class="form-control" id="nationality" name="nationality" [(ngModel)]="newConstructor.nationality"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label for="url" class="form-label">Url:</label>
-                    <input type="text" class="form-control" id="url" name="url" [(ngModel)]="newConstructor.url" required>
-                </div>
-                <div class="mb-3">
-                    <label for="constructorRef" class="form-label">ConstructorRef:</label>
-                    <input type="number" class="form-control" id="constructorRef" name="constructorRef"
-                        [(ngModel)]="newConstructor.constructorRef" required>
-                </div>
-                <button type="submit" class="btn btn-danger" (click)="createConstructor()">Crear Equipo</button>
-            </form>
-        </div>
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Crear Equipo</h4>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newConstructor.name"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="nationality" class="form-label">Nacionalidad:</label>
+                <input type="text" class="form-control" id="nationality" name="nationality"
+                    [(ngModel)]="newConstructor.nationality" required>
+            </div>
+            <div class="mb-3">
+                <label for="url" class="form-label">Url:</label>
+                <input type="text" class="form-control" id="url" name="url" [(ngModel)]="newConstructor.url" required>
+            </div>
+            <div class="mb-3">
+                <label for="constructorRef" class="form-label">ConstructorRef:</label>
+                <input type="number" class="form-control" id="constructorRef" name="constructorRef"
+                    [(ngModel)]="newConstructor.constructorRef" required>
+            </div>
+            <button type="submit" class="btn btn-danger" (click)="createConstructor()">Crear Equipo</button>
+        </form>
     </div>
 </div>
