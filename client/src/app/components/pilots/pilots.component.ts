@@ -26,9 +26,8 @@ export class PilotsComponent implements OnInit {
     }
 
     mostrarDetalles(driver: any): void {
-        console.log(`Detalles del piloto: ${JSON.stringify(driver)}`);
-        this.modalService.open(DetailDriverComponent, { ariaLabelledBy: 'modal-basic-title' });
-        // Aquí puedes abrir un modal o realizar otras acciones según tus necesidades.
+        const modalRef = this.modalService.open(DetailDriverComponent, { size: 'xl' });
+        modalRef.componentInstance.driverData = driver;
     }
 
     addDriver(): void {

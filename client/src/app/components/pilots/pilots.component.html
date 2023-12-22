@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let driver of drivers" (click)="mostrarDetalles(driver)">
+    <tr *ngFor="let driver of drivers" (dblclick)="mostrarDetalles(driver)">
       <td>{{ driver.driverId }}</td>
       <!--<td>{{ driver.driverRef }}</td>-->
       <td>{{ driver.number }}</td>

@@ -8,7 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddDriverComponent {
   newDriver: any = {
-    driverRef: 0,
+    driverRef: '',
     number: 0,
     code: '',
     forename: '',

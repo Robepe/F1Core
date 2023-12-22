@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let constructor of constructors" (click)="mostrarDetalles(constructor)">
+    <tr *ngFor="let constructor of constructors" (dblclick)="mostrarDetalles(constructor)">
       <td>{{ constructor.constructorId }}</td>
       <!--<td>{{ constructor.constructorRef }}</td>-->
       <td>{{ constructor.name }}</td>

@@ -1,1 +1,19 @@
-<p>detail-driver works!</p>
+<!-- driver-details-modal.component.html -->
+<div class="modal-header">
+    <h4 class="modal-title">Detalles del piloto</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <strong>Nombre: </strong>
+        <input [(ngModel)]="editedDriver.forename" placeholder="Nombre">
+        <input [(ngModel)]="editedDriver.surname" placeholder="Apellido">
+    </div>
+    <div>
+        <strong>Número: </strong>
+        <input [(ngModel)]="editedDriver.number" placeholder="Número">
+    </div>
+    <!-- Agrega más campos de entrada según sea necesario -->
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
+</div>
