@@ -14,7 +14,6 @@ export class DetailDriverComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private driverService: DriverService) {}
 
   ngOnInit(): void {
-    // Copia los datos del conductor para realizar ediciones sin afectar los datos originales
     this.editedDriver = { ...this.driverData };
   }
 
@@ -23,12 +22,11 @@ export class DetailDriverComponent implements OnInit {
       .subscribe(
         response => {
           console.log('Cambios guardados:', response);
-          // Puedes cerrar el modal después de guardar los cambios si es apropiado
+          this.driverService.emitUpdateEvent();
           this.activeModal.close();
         },
         error => {
           console.error('Error al guardar cambios:', error);
-          // Maneja el error según sea necesario
         }
       );
   }

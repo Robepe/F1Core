@@ -17,6 +17,9 @@ export class PilotsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getDrivers();
+        this.driverService.getUpdateEvent().subscribe(() => {
+            this.getDrivers();
+          });
     }
 
     getDrivers(): void {
