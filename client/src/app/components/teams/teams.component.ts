@@ -14,6 +14,8 @@ export class TeamsComponent implements OnInit, OnChanges {
     constructors: any[] = [];
     searchTerm: string = '';
     filteredConstructors: any[] = [];
+    showSuccessAlert: boolean = false;
+    showErrorAlert: boolean = false;
 
     constructor(private constructorService: ConstructorService, private modalService: NgbModal) { };
 
@@ -57,9 +59,17 @@ export class TeamsComponent implements OnInit, OnChanges {
                         (createdConstructor) => {
                             console.log('Nuevo Constructor creado:', createdConstructor);
                             this.getConstructors();
+                            this.showSuccessAlert = true;
+                            setTimeout(() => {
+                                this.showSuccessAlert = false;
+                            }, 3000);
                         },
                         (error) => {
                             console.error('Error al crear el Constructor:', error);
+                            this.showErrorAlert = true;
+                            setTimeout(() => {
+                                this.showSuccessAlert = false;
+                            }, 3000);
                         }
                     );
                 }

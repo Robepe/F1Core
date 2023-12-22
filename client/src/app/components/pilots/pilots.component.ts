@@ -14,6 +14,8 @@ export class PilotsComponent implements OnInit, OnChanges {
     drivers: any[] = [];
     searchTerm: string = '';
     filteredDrivers: any[] = [];
+    showSuccessAlert: boolean = false;
+    showErrorAlert: boolean = false;
 
     constructor(private driverService: DriverService, private modalService: NgbModal) { };
 
@@ -57,9 +59,18 @@ export class PilotsComponent implements OnInit, OnChanges {
                         (createdDriver) => {
                             console.log('Nuevo Driver creado:', createdDriver);
                             this.getDrivers();
+                            this.showSuccessAlert = true;
+                            setTimeout(() => {
+                                this.showSuccessAlert = false;
+                            }, 3000);
+
                         },
                         (error) => {
                             console.error('Error al crear el Driver:', error);
+                            this.showErrorAlert = true;
+                            setTimeout(() => {
+                                this.showSuccessAlert = false;
+                            }, 3000);
                         }
                     );
                 }

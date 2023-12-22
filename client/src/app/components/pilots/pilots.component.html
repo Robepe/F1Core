@@ -1,5 +1,11 @@
 <br />
 <h3 class="text-dark">Pilotos</h3>
+<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+  Piloto creado con éxito.
+</div>
+<div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
+  Error al crear Piloto
+</div>
 <div class="row">
   <div class="d-flex">
     <input type="text" placeholder="Buscar por apellido" [(ngModel)]="searchTerm" (input)="filterDrivers()">
