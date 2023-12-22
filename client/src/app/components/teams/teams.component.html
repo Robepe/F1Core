@@ -1,8 +1,12 @@
 <br />
 <h3 class="text-dark">Equipos</h3>
-<div class="d-flex justify-content-end">
-  <button type="button" class="btn btn-danger ml-auto" (click)="addConstructor()">➕</button>
-</div>
+<div class="row">
+  <div class="d-flex">
+    <input type="text" placeholder="Buscar por nombre" [(ngModel)]="searchTerm" (input)="filterConstructors()">
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-danger ml-auto" (click)="addConstructor()">➕</button>
+  </div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -14,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let constructor of constructors" (dblclick)="mostrarDetalles(constructor)">
+    <tr *ngFor="let constructor of filteredConstructors" (dblclick)="mostrarDetalles(constructor)">
       <td>{{ constructor.constructorId }}</td>
       <!--<td>{{ constructor.constructorRef }}</td>-->
       <td>{{ constructor.name }}</td>

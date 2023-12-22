@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConstructorService } from 'src/app/services/constructors/constructor-service.service';
 
@@ -10,8 +10,10 @@ import { DetailConstructorComponent } from '../../modales/constructors/detail-co
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.css']
 })
-export class TeamsComponent implements OnInit{
+export class TeamsComponent implements OnInit, OnChanges {
     constructors: any[] = [];
+    searchTerm: string = '';
+    filteredConstructors: any[] = [];
 
     constructor(private constructorService: ConstructorService, private modalService: NgbModal) { };
 
@@ -20,12 +22,23 @@ export class TeamsComponent implements OnInit{
         this.constructorService.getUpdateEvent().subscribe(() => {
             this.getConstructors();
         });
+        this.filteredConstructors = this.constructors;
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.filteredConstructors = this.constructors;
     }
 
     getConstructors(): void {
-        this.constructorService.getConstructors().subscribe((data) => {
-            this.constructors = data;
-        });
+        this.constructorService.getConstructors().subscribe(
+            constructors => {
+                this.constructors = constructors;
+                this.filteredConstructors = this.constructors;
+            },
+            error => {
+                console.error('Error al obtener conductores:', error);
+            }
+        );
     }
 
     mostrarDetalles(constructor: any): void {
@@ -68,5 +81,11 @@ export class TeamsComponent implements OnInit{
                     console.error('Error al eliminar conductor:', error);
                 }
             );
+    }
+
+    filterConstructors(): void {
+        this.filteredConstructors = this.constructors.filter(d =>
+            d.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
     }
 }
