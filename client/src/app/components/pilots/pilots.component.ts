@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DriverService } from 'src/app/services/drivers/driver-service.service';
 
@@ -10,8 +10,10 @@ import { DetailDriverComponent } from '../../modales/drivers/detail-driver/detai
     templateUrl: './pilots.component.html',
     styleUrls: ['./pilots.component.css']
 })
-export class PilotsComponent implements OnInit {
+export class PilotsComponent implements OnInit, OnChanges {
     drivers: any[] = [];
+    searchTerm: string = '';
+    filteredDrivers: any[] = [];
 
     constructor(private driverService: DriverService, private modalService: NgbModal) { };
 
@@ -20,12 +22,23 @@ export class PilotsComponent implements OnInit {
         this.driverService.getUpdateEvent().subscribe(() => {
             this.getDrivers();
         });
+        this.filteredDrivers = this.drivers;
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.filteredDrivers = this.drivers;
     }
 
     getDrivers(): void {
-        this.driverService.getDrivers().subscribe((data) => {
-            this.drivers = data;
-        });
+        this.driverService.getDrivers().subscribe(
+            drivers => {
+                this.drivers = drivers;
+                this.filteredDrivers = this.drivers;  // Asignación dentro de la suscripción
+            },
+            error => {
+                console.error('Error al obtener conductores:', error);
+            }
+        );
     }
 
     mostrarDetalles(driver: any): void {
@@ -68,5 +81,11 @@ export class PilotsComponent implements OnInit {
                     console.error('Error al eliminar conductor:', error);
                 }
             );
+    }
+
+    filterDrivers(): void {
+        this.filteredDrivers = this.drivers.filter(d =>
+            d.surname.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
     }
 }

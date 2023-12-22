@@ -1,7 +1,12 @@
 <br />
 <h3 class="text-dark">Pilotos</h3>
-<div class="d-flex justify-content-end">
-  <button type="button" class="btn btn-danger ml-auto" (click)="addDriver()">➕</button>
+<div class="row">
+  <div class="d-flex">
+    <input type="text" placeholder="Buscar por apellido" [(ngModel)]="searchTerm" (input)="filterDrivers()">
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-danger ml-auto" (click)="addDriver()">➕</button>
+  </div>
 </div>
 <table class="table table-hover">
   <thead>
@@ -19,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let driver of drivers" (dblclick)="mostrarDetalles(driver)">
+    <tr *ngFor="let driver of filteredDrivers" (dblclick)="mostrarDetalles(driver)">
       <td>{{ driver.driverId }}</td>
       <!--<td>{{ driver.driverRef }}</td>-->
       <td>{{ driver.number }}</td>
