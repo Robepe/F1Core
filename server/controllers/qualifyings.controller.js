@@ -2,7 +2,7 @@ const db = require("../models");
 const Qualifying = db.qualifyings;
 const Op = db.Sequelize.Op;
 
-const itemsLimit = 20;
+const itemsLimit = 8;
 
 // Create and Save a new Qualifying
 exports.create = (req, res) => {

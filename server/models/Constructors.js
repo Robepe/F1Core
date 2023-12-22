@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Constructors = sequelize.define('Constructors', {
+  const Constructors = sequelize.define('constructors', {
     constructorId: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const { Constructors, Races } = require('./');
 
 module.exports = (sequelize) => {
-  const ConstructorResult = sequelize.define('ConstructorResult', {
+  const ConstructorResult = sequelize.define('constructorResult', {
     constructorResultsId: {
       type: DataTypes.INTEGER,
       allowNull: false,

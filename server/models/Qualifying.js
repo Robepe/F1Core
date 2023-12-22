@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const { Races, Drivers, Constructors } = require('./');
 
 module.exports = (sequelize) => {
-  const Qualifying = sequelize.define('Qualifying', {
+  const Qualifying = sequelize.define('qualifying', {
     qualifyId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,7 +40,9 @@ module.exports = (sequelize) => {
     q3: {
       type: DataTypes.STRING,
       allowNull: true,
-    },
+    }
+  }, {
+    tableName: 'qualifying'
   });
 
   Qualifying.associate = (models) => {

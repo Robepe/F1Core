@@ -5,6 +5,10 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.DB_USER, dbConfig.DB_PASSW
     host: dbConfig.DB_HOST,
     dialect: dbConfig.dialect,
 
+    define: {
+        timestamps: false
+    },
+
     pool: {
         max: dbConfig.pool.max,
         min: dbConfig.pool.min,

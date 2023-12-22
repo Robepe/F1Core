@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const { Races, Drivers } = require('./');
 
 module.exports = (sequelize) => {
-  const PitStop = sequelize.define('PitStop', {
+  const PitStop = sequelize.define('pitStop', {
     raceId: {
       type: DataTypes.INTEGER,
       allowNull: false,

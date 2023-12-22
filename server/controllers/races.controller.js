@@ -2,7 +2,7 @@ const db = require("../models");
 const Race = db.races;
 const Op = db.Sequelize.Op;
 
-const itemsLimit = 20;
+const itemsLimit = 8;
 
 // Create and Save a new Race
 exports.create = (req, res) => {

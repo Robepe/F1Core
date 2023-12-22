@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Circuit = sequelize.define('Circuit', {
+  const Circuit = sequelize.define('circuits', {
     circuitId: {
       type: DataTypes.INTEGER,
       allowNull: false,

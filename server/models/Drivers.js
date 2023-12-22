@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Drivers = sequelize.define('Drivers', {
+  const Drivers = sequelize.define('drivers', {
     driverId: {
       type: DataTypes.INTEGER,
       allowNull: false,

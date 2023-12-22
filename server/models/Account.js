@@ -1,7 +1,7 @@
 const { Constructors, Drivers } = require('./');
 
 module.exports = (sequelize, DataTypes) => {
-	const Account = sequelize.define('Account', {
+	const Account = sequelize.define('accounts', {
 		id: {
 			type: DataTypes.INTEGER,
 			primaryKey: true,
