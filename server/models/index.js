@@ -22,7 +22,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.accounts = require("./Account.js")(sequelize, Sequelize);
+// db.accounts = require("./Account.js")(sequelize, Sequelize);
+db.users = require("./User.js")(sequelize, Sequelize);
 db.circuits = require("./Circuits.js")(sequelize, Sequelize);
 db.constructorResults = require("./ConstructorResult.js")(sequelize, Sequelize);
 db.constructorStandings = require("./ConstructorStanding.js")(sequelize, Sequelize);

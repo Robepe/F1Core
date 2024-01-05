@@ -1,7 +1,7 @@
 const { Constructors, Drivers } = require('./');
 
 module.exports = (sequelize, DataTypes) => {
-	const Account = sequelize.define('accounts', {
+	const User = sequelize.define('users', {
 		id: {
 			type: DataTypes.INTEGER,
 			primaryKey: true,
@@ -26,15 +26,15 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER
 		}
 	}, {});
-	Account.associate = function (models) {
-		Account.hasOne(models.Drivers, {
+	User.associate = function (models) {
+		User.hasOne(models.Drivers, {
 			foreignKey: 'fav_driver',
 			targetKey: 'driverId'
 		});
-		Account.hasOne(Constructors, {
+		User.hasOne(Constructors, {
 			foreignKey: 'fav_team',
 			targetKey: 'constructorId'
 		});
 	};
-	return Account;
+	return User;
 };
