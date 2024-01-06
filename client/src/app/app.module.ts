@@ -23,6 +23,7 @@ import { DetailDriverComponent } from './modales/drivers/detail-driver/detail-dr
 import { AddDriverComponent } from './modales/drivers/add-driver/add-driver.component';
 import { AddConstructorComponent } from './modales/constructors/add-constructor/add-constructor/add-constructor.component';
 import { DetailConstructorComponent } from './modales/constructors/detail-constructor/detail-constructor/detail-constructor.component';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
 
 // Crea una función para cargar las traducciones desde archivos JSON
 export function HttpLoaderFactory(http: HttpClient) {
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule
   ],
+  providers: [httpInterceptorProviders],
   bootstrap: [
     AppComponent
   ],

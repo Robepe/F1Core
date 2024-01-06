@@ -1,19 +1,43 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const AUTH_API = 'http://localhost:4201';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  login(username: string, password: string): boolean {
-    // Lógica de autenticación (puedes usar un backend para verificar credenciales).
-    // Devuelve true si la autenticación es exitosa, false de lo contrario.
-    return true;
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(
+      AUTH_API + '/',
+      {
+        username,
+        password,
+      },
+      httpOptions
+    );
   }
 
-  logout(): void {
-    // Lógica para cerrar sesión.
+  register(username: string, email: string, password: string): Observable<any> {
+    return this.http.post(
+      AUTH_API + '/login',
+      {
+        username,
+        email,
+        password,
+      },
+      httpOptions
+    );
+  }
+
+  logout(): Observable<any> {
+    return this.http.post(AUTH_API + 'signout', {}, httpOptions);
   }
 }

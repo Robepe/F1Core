@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Validation from '../../utils/validation';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,11 @@ export class LoginComponent implements OnInit {
     acceptTerms: new FormControl(false),
   });
   submitted = false;
+  isSuccessful = false;
+  //isSignUpFailed = false;
+  //errorMessage = '';
 
-  constructor(private translate: TranslateService, private formBuilder: FormBuilder) { }
+  constructor(private translate: TranslateService, private formBuilder: FormBuilder, private authService: AuthService) { }
 
   changeLanguage(language: string) {
     this.translate.use(language);
@@ -66,11 +70,21 @@ export class LoginComponent implements OnInit {
     }
 
     console.log(JSON.stringify(this.form.value, null, 2));
-  }
 
-  onReset(): void {
-    this.submitted = false;
-    this.form.reset();
+    const { username, email, password } = this.form.value;
+
+    this.authService.register(username, email, password).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        //this.isSignUpFailed = false;
+      },
+      error: err => {
+        console.log(err.error.message);
+        //this.errorMessage = err.error.message;
+        //this.isSignUpFailed = true;
+      }
+    });
   }
 }
 
