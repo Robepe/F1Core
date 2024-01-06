@@ -18,34 +18,3 @@ module.exports = function (app) {
         controller.userBoard
     );
 };
-
-// lo que habia en 'account.routes.js' (por si acaso)
-
-/*module.exports = app => {
-    const accounts = require("../controllers/account.controller.js");
-
-    var router = require("express").Router();
-
-    // Create a new Account
-    router.post("/", accounts.create);
-
-    // Retrieve all Accounts
-    router.get("/", accounts.findAll);
-
-    // Retrieve all admin Accounts
-    router.get("/admin", accounts.findAllAdmin);
-
-    // Retrieve a single Account with id
-    router.get("/:id", accounts.findOne);
-
-    // Update a Account with id
-    router.put("/:id", accounts.update);
-
-    // Delete an Account with id
-    router.delete("/:id", accounts.delete);
-
-    // Delete all Accounts
-    router.delete("/", accounts.deleteAll);
-
-    app.use('/api/accounts', router);
-};*/
