@@ -11,25 +11,10 @@ footer {
     text-align: center;
 }
 
-/* .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-} */
-
 body {
-    background-color: lightgray;
+    background: linear-gradient(#e66465, #9198e5);
 }
 
 main {
-    margin-bottom: 16em;
-}
-
-#background-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
+    margin-bottom: 39%;
 }
