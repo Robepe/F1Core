@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import Validation from '../../utils/validation';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,17 +8,54 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
-  constructor(private authService: AuthService) { }
+export class AuthComponent implements OnInit {
+  form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+  submitted = false;
 
-  login(username: string, password: string): void {
-    const isAuthenticated = this.authService.login(username, password);
+  constructor(private formBuilder: FormBuilder) { }
 
-    if (isAuthenticated) {
-      // Redirecciona al usuario a la página principal después de iniciar sesión.
-      // Puedes usar el enrutador de Angular para la navegación.
-    } else {
-      // Muestra un mensaje de error o toma alguna acción en caso de autenticación fallida.
+  ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        username: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(20)
+          ]
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(40)
+          ]
+        ],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: [Validation.match('password', 'confirmPassword')]
+      }
+    );
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
     }
+
+    console.log(JSON.stringify(this.form.value, null, 2));
   }
 }
