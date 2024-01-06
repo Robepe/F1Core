@@ -21,5 +21,19 @@
     "card2.description": "Sumérgete en las estadísticas de pilotos y equipos desde los inicios en 1950 hasta la actualidad. Descubre récords, curiosidades y datos históricos.",
     "card3.title": "Notificaciones en Tiempo Real",
     "card3.description": "Personaliza tus alertas de notificación para recibir actualizaciones en tiempo real sobre tu piloto y equipo favorito en cada Gran Premio de Fórmula 1.",
-    "background.error": "Oops. Parece que tu navegador no soporta videos :("
+    "background.error": "Oops. Parece que tu navegador no soporta videos :(",
+    "signin.username": "Nombre de usuario",
+    "signin.password": "Contraseña",
+    "signin.confirmPassword": "Confirmar Contraseña",
+    "signin.register": "Registrarse",
+    "signin.usernameRequired": "Se requiere un nombre de usuario",
+    "signin.usernameMin": "El nombre de usuario debe tener al menos 5 caracteres",
+    "signin.usernameMax": "El nombre de usuario no debe exceder los 20 caracteres",
+    "signin.emailRequired": "Se requiere un correo electrónico",
+    "signin.emailInvalid": "El correo electrónico no es válido",
+    "signin.passwordRequired": "Se requiere una contraseña",
+    "signin.passwordMin": "La contraseña debe tener al menos 4 caracteres",
+    "signin.passwordMax": "La contraseña no debe exceder los 40 caracteres",
+    "signin.confRequired": "Se requiere confirmar la contraseña",
+    "signin.confUnmatch": "La confirmación de la contraseña no coincide"
 }

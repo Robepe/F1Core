@@ -21,5 +21,20 @@
     "card2.description": "Dive into driver and team statistics from the early days in 1950 to the present. Discover records, trivia, and historical insights.",
     "card3.title": "Real-Time Notifications",
     "card3.description": "Customize your notification alerts to receive real-time updates on your favorite driver and team during every Formula 1 Grand Prix.",
-    "background.error": "Oops. It looks like your browser does not support video :("
+    "background.error": "Oops. It looks like your browser does not support video :(",
+    "signin.username": "Username",
+    "signin.password": "Password",
+    "signin.confirmPassword": "Confirm Password",
+    "signin.register": "Register",
+    "signin.usernameRequired": "Username is required",
+    "signin.usernameMin": "Username must be at least 5 characters",
+    "signin.usernameMax": "Username must not exceed 20 characters",
+    "signin.emailRequired": "Email is required",
+    "signin.emailInvalid": "Email is invalid",
+    "signin.passwordRequired": "Password is required",
+    "signin.passwordMin": "Password must be at least 4 characters",
+    "signin.passwordMax": "Password must not exceed 40 characters",
+    "signin.confRequired": "Confirm Password is required",
+    "signin.confUnmatch": "Confirm Password does not match"
+
 }
