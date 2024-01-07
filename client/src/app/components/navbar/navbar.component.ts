@@ -19,10 +19,8 @@ export class NavbarComponent {
 	}
 
 	logout(): void {
-		console.log("1")
 		this.authService.logout().subscribe({
 			next: res => {
-				console.log("2")
 				console.log(res);
 				this.storageService.clean();
 

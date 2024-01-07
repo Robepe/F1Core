@@ -1,0 +1,42 @@
+.sidebar .nav-link {
+    margin-bottom: 8px;
+}
+
+.sidebar .nav-link.active {
+    background-color: #343a40;
+    border-radius: 8px;
+    color: white;
+}
+
+.sidebar .nav-link i {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+main {
+    padding-bottom: 20px;
+}
+
+a:link {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #dc3545;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: underline;
+}
