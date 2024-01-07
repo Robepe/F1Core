@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import Validation from '../../utils/validation';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from '../../services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +17,7 @@ export class AuthComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private storageService: StorageService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private storageService: StorageService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -53,10 +54,6 @@ export class AuthComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    /*if (this.form.invalid) {
-      return;
-    }*/
-
     console.log(JSON.stringify(this.form.value, null, 2));
 
     const { username, password } = this.form.value;
@@ -66,15 +63,11 @@ export class AuthComponent implements OnInit {
         console.log(data)
         this.storageService.saveUser(data);
 
-        //this.isLoginFailed = false;
-        //this.isLoggedIn = true;
-        //this.roles = this.storageService.getUser().roles;
-        this.reloadPage();
+        // Redirigir a la ruta deseada después de la autenticación
+        this.router.navigate(['/layout/dashboard']);
       },
       error: err => {
         console.log(err.error.message);
-        //this.errorMessage = err.error.message;
-        //this.isLoginFailed = true;
       }
     });
   }
