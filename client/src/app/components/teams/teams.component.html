@@ -1,11 +1,5 @@
 <br />
 <h3 class="text-dark">Equipos</h3>
-<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
-  Equipo creado con éxito.
-</div>
-<div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
-  Error al crear Equipo
-</div>
 <div class="row">
   <div class="d-flex">
     <input type="text" placeholder="Buscar por nombre" [(ngModel)]="searchTerm" (input)="filterConstructors()">
@@ -36,3 +30,9 @@
     </tr>
   </tbody>
 </table>
+<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+  Equipo creado con éxito.
+</div>
+<div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
+  Error al crear Equipo
+</div>
