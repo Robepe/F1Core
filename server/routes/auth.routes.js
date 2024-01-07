@@ -20,4 +20,7 @@ module.exports = function (app) {
 
     // signin
     app.post("/", controller.signin);
+
+    // signout
+    app.post("/layout/dashboard", controller.signout);
 };

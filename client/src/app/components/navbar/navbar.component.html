@@ -10,23 +10,24 @@
       </div>
 
       <div class="col-md-4 text-right">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- 'Perfil' a la derecha -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Perfil</a> <!--método onclick aquí-->
-            </li>
-          </ul>
+          <div ngbDropdown placement="bottom-end" class="d-inline-block">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownBasic2" ngbDropdownToggle>
+              <img src="assets/media/icons/usuario2.png" alt="usuario" width="25" height="25">
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem> {{username}} </button>
+              <button ngbDropdownItem (click)="logout()">Cerrar Sesión</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </nav>
-
-
-
-
