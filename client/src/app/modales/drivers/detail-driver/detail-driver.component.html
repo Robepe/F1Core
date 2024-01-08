@@ -1,32 +1,41 @@
-<div class="modal-header">
-    <h4 class="modal-title">Detalles del piloto</h4>
-</div>
-<div class="modal-body">
-    <div>
-        <p>Nombre: </p>
-        <input [(ngModel)]="editedDriver.forename" placeholder="Nombre">
+<div class="modal-content-custom">
+    <div class="modal-header">
+        <h4 class="modal-title">Detalles del piloto</h4>
     </div>
-    <div>
-        <p>Apellido: </p>
-        <input [(ngModel)]="editedDriver.surname" placeholder="Apellido">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <p>Nombre: </p>
+                    <input [(ngModel)]="editedDriver.forename" placeholder="Nombre">
+                </div>
+                <div>
+                    <p>Apellido: </p>
+                    <input [(ngModel)]="editedDriver.surname" placeholder="Apellido">
+                </div>
+                <div>
+                    <p>Número: </p>
+                    <input [(ngModel)]="editedDriver.number" placeholder="Número">
+                </div>
+                <div>
+                    <p>Prefijo: </p>
+                    <input [(ngModel)]="editedDriver.code" placeholder="Prefijo">
+                </div>
+                <div>
+                    <p>Fecha Nacimiento: </p>
+                    <input [(ngModel)]="editedDriver.dob" placeholder="Fecha Nacimiento">
+                </div>
+                <div>
+                    <p>Url: </p>
+                    <input [(ngModel)]="editedDriver.url" placeholder="Url">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img [src]="editedDriver.imagePath" alt="Imagen del piloto" class="img-fluid">
+            </div>
+        </div>
     </div>
-    <div>
-        <p>Número: </p>
-        <input [(ngModel)]="editedDriver.number" placeholder="Número">
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
     </div>
-    <div>
-        <p>Prefijo: </p>
-        <input [(ngModel)]="editedDriver.code" placeholder="Prefijo">
-    </div>
-    <div>
-        <p>Fecha Nacimiento: </p>
-        <input [(ngModel)]="editedDriver.dob" placeholder="Fecha Nacimiento">
-    </div>
-    <div>
-        <p>Url: </p>
-        <input [(ngModel)]="editedDriver.url" placeholder="Url">
-    </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
 </div>

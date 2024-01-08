@@ -15,6 +15,9 @@ export class DetailDriverComponent implements OnInit {
 
   ngOnInit(): void {
     this.editedDriver = { ...this.driverData };
+    console.log(this.driverData)
+
+    this.editedDriver.imagePath = '../../assets/media/img/' + this.editedDriver.driverRef + '.avif';
   }
 
   saveChanges(): void {
