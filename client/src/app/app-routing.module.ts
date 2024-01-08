@@ -21,7 +21,6 @@ const routes: Routes = [
       { path: 'pilots', component: PilotsComponent, canActivate: [AuthGuard] },
       { path: 'teams', component: TeamsComponent, canActivate: [AuthGuard] },
       { path: 'results', component: ResultsComponent, canActivate: [AuthGuard] },
-      // más rutas que necesiten el sidebar
     ]
   }
 ];
