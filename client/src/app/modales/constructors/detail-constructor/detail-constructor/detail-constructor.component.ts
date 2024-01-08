@@ -15,6 +15,9 @@ export class DetailConstructorComponent implements OnInit {
 
   ngOnInit(): void {
     this.editedConstructor = { ...this.constructorData };
+    console.log(this.editedConstructor)
+
+    this.editedConstructor.imagePath = '../../assets/media/img/' + this.editedConstructor.constructorRef + '.avif';
   }
 
   saveChanges(): void {

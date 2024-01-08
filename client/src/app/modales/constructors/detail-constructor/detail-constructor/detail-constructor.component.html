@@ -3,24 +3,33 @@
         <h4 class="modal-title">Detalles del equipo</h4>
     </div>
     <div class="modal-body">
-        <div>
-            <p>Nombre: </p>
-            <input [(ngModel)]="editedConstructor.name" placeholder="Nombre">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Columna izquierda para el formulario -->
+                <div>
+                    <p>Nombre: </p>
+                    <input [(ngModel)]="editedConstructor.name" placeholder="Nombre">
+                </div>
+                <div>
+                    <p>Nacionalidad: </p>
+                    <input [(ngModel)]="editedConstructor.nationality" placeholder="Nacionalidad">
+                </div>
+                <div>
+                    <p>Url: </p>
+                    <input [(ngModel)]="editedConstructor.url" placeholder="Url">
+                </div>
+                <div>
+                    <p>Referencia: </p>
+                    <input [(ngModel)]="editedConstructor.contrustorRef" placeholder="Referencia">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Columna derecha para la imagen -->
+                <img [src]="editedConstructor.imagePath" alt="Imagen del equipo" class="img-fluid">
+            </div>
         </div>
-        <div>
-            <p>Apellido: </p>
-            <input [(ngModel)]="editedConstructor.nationality" placeholder="Nacionalidad">
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
         </div>
-        <div>
-            <p>Número: </p>
-            <input [(ngModel)]="editedConstructor.url" placeholder="Url">
-        </div>
-        <div>
-            <p>Prefijo: </p>
-            <input [(ngModel)]="editedConstructor.contrustorRef" placeholder="Referencia">
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="saveChanges()">Guardar Cambios</button>
     </div>
 </div>

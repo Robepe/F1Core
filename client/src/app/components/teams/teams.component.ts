@@ -6,9 +6,9 @@ import { AddConstructorComponent } from '../../modales/constructors/add-construc
 import { DetailConstructorComponent } from '../../modales/constructors/detail-constructor/detail-constructor/detail-constructor.component';
 
 @Component({
-  selector: 'app-teams',
-  templateUrl: './teams.component.html',
-  styleUrls: ['./teams.component.css']
+    selector: 'app-teams',
+    templateUrl: './teams.component.html',
+    styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit, OnChanges {
     constructors: any[] = [];
@@ -44,7 +44,7 @@ export class TeamsComponent implements OnInit, OnChanges {
     }
 
     mostrarDetalles(constructor: any): void {
-        const modalRef = this.modalService.open(DetailConstructorComponent, { size: 'l' });
+        const modalRef = this.modalService.open(DetailConstructorComponent, { size: 'xl' });
         modalRef.componentInstance.constructorData = constructor;
     }
 
