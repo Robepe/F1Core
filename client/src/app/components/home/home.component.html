@@ -1,108 +1,110 @@
 <body>
-    <!-- Video de fondo -->
-    <video autoplay muted loop id="background-video">
-        <!-- <source src="assets/media/video/F1Core.mp4" type="video/mp4" [translate]="'background.error'"> -->
-        <source src="assets/media/video/F1Core.mp4" type="video/mp4">
-        <!-- <source src="assets/media/video/F1Core.webm" type="video/webm">
-        <source src="assets/media/video/F1Core.ogv" type="video/ogg"> -->
-    </video>
+  <!-- Video de fondo -->
+  <video autoplay muted loop id="background-video">
+    <!-- <source src="assets/media/video/F1Core.mp4" type="video/mp4" [translate]="'background.error'"> -->
+    <source src="assets/media/video/F1Core.mp4" type="video/mp4">
+    <!-- <source src="assets/media/video/F1Core.webm" type="video/webm">
+    <source src="assets/media/video/F1Core.ogv" type="video/ogg"> -->
+  </video>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="/">F1Core</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/" [translate]="'navbar.home'"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Robepe/F1Core" [translate]="'navbar.about'"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                            [translate]="'navbar.contact'"></a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item px-2">
-                        <a class="btn btn-outline-danger ms-auto" (click)="openAuthModal()"
-                            [translate]="'navbar.signin'"></a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="btn btn-danger me-auto" href="/login" [translate]="'navbar.signup'"></a>
-                    </li>
-                </ul>
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">F1Core</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/" [translate]="'navbar.home'"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Robepe/F1Core" [translate]="'navbar.about'"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            [translate]="'navbar.contact'"></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item px-2">
+            <a class="btn btn-outline-danger ms-auto" (click)="openAuthModal()"
+            [translate]="'navbar.signin'"></a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="btn btn-danger me-auto" href="/login" [translate]="'navbar.signup'"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="py-5 text-center">
+    <div class="container">
+      <h1 class="display-1 text-light" id="header" [translate]="'header.welcome'"></h1>
+      <p class="lead text-light" [translate]="'header.description'"></p>
+      <a class="btn btn-danger btn-lg" href="https://github.com/Robepe/F1Core" role="button"
+      [translate]="'header.learnMore'"></a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row">
+        @for (card of cards; track card; let i = $index) {
+          <div class="col-md-4 mt-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ 'card' + (i + 1) + '.title' | translate }}</h5>
+                <p class="card-text">{{ 'card' + (i + 1) + '.description' | translate }}</p>
+              </div>
             </div>
-        </div>
-    </nav>
+          </div>
+        }
+      </div>
+    </div>
+  </main>
 
-    <!-- Encabezado -->
-    <header class="py-5 text-center">
-        <div class="container">
-            <h1 class="display-1 text-light" id="header" [translate]="'header.welcome'"></h1>
-            <p class="lead text-light" [translate]="'header.description'"></p>
-            <a class="btn btn-danger btn-lg" href="https://github.com/Robepe/F1Core" role="button"
-                [translate]="'header.learnMore'"></a>
-        </div>
-    </header>
-
-    <!-- Contenido principal -->
-    <main class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mt-4" *ngFor="let card of cards; let i = index">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ 'card' + (i + 1) + '.title' | translate }}</h5>
-                            <p class="card-text">{{ 'card' + (i + 1) + '.description' | translate }}</p>
-                        </div>
-                    </div>
-                </div>
+  <!-- Pie de página -->
+  <footer class="py-4 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col text-start">
+          <div ngbDropdown placement="top-end" class="d-inline-block">
+            <button type="button" class="btn btn-secondary" id="dropdownBasic2"
+            [translate]="'footer.language'" ngbDropdownToggle></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem (click)="changeLanguage('en')"
+              [translate]="'dropdown.english'"></button>
+              <button ngbDropdownItem (click)="changeLanguage('es')"
+              [translate]="'dropdown.spanish'"></button>
             </div>
-        </div>
-    </main>
-
-    <!-- Pie de página -->
-    <footer class="py-4 bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col text-start">
-                    <div ngbDropdown placement="top-end" class="d-inline-block">
-                        <button type="button" class="btn btn-secondary" id="dropdownBasic2"
-                            [translate]="'footer.language'" ngbDropdownToggle></button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-                            <button ngbDropdownItem (click)="changeLanguage('en')"
-                                [translate]="'dropdown.english'"></button>
-                            <button ngbDropdownItem (click)="changeLanguage('es')"
-                                [translate]="'dropdown.spanish'"></button>
-                        </div>
-                    </div>
-                    <!-- <div ngbDropdown placement="top-end" class="d-inline-block">
-                        <button type="button" class="btn btn-secondary" id="dropdownBasic2" ngbDropdownToggle>
-                            <img src="ruta_de_la_bandera_actual.png" alt="Bandera Actual" width="1" height="10">
-                        </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-                            <img ngbDropdownItem (click)="changeLanguage('en')" src="assets/media/icons/united-kingdom.png"
-                                alt="Inglés" width="1" height="30">
-                            <img ngbDropdownItem (click)="changeLanguage('es')" src="assets/media/icons/spain.png"
-                                alt="Español" width="1" height="30">
-                        </div>
-                    </div> -->
-                </div>
-                <div class="col text-center">
-                    <p [translate]="'footer.copyright'" class="custom-footer-text"></p>
-                </div>
-                <div class="col text-end">
-                    <a href="https://github.com/Robepe" target="_blank">
-                        <img src="assets/media/img/github-mark-white.svg" alt="GitHub" width="30" height="30">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+          </div>
+          <!-- <div ngbDropdown placement="top-end" class="d-inline-block">
+          <button type="button" class="btn btn-secondary" id="dropdownBasic2" ngbDropdownToggle>
+            <img src="ruta_de_la_bandera_actual.png" alt="Bandera Actual" width="1" height="10">
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+            <img ngbDropdownItem (click)="changeLanguage('en')" src="assets/media/icons/united-kingdom.png"
+              alt="Inglés" width="1" height="30">
+            <img ngbDropdownItem (click)="changeLanguage('es')" src="assets/media/icons/spain.png"
+              alt="Español" width="1" height="30">
+          </div>
+        </div> -->
+      </div>
+      <div class="col text-center">
+        <p [translate]="'footer.copyright'" class="custom-footer-text"></p>
+      </div>
+      <div class="col text-end">
+        <a href="https://github.com/Robepe" target="_blank">
+          <img src="assets/media/img/github-mark-white.svg" alt="GitHub" width="30" height="30">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>

@@ -24,25 +24,31 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let driver of filteredDrivers" (dblclick)="mostrarDetalles(driver)">
-      <td>{{ driver.driverId }}</td>
-      <!--<td>{{ driver.driverRef }}</td>-->
-      <td>{{ driver.number }}</td>
-      <td>{{ driver.code }}</td>
-      <td>{{ driver.forename }}</td>
-      <td>{{ driver.surname }}</td>
-      <td>{{ driver.dob | date:'dd/MM/yyyy' }}</td>
-      <td>{{ driver.nationality }}</td>
-      <td>{{ driver.url }}</td>
-      <td><button type="button" class="btn btn-outline-danger" (click)="deleteDriver(driver.driverId)">
+    @for (driver of filteredDrivers; track driver) {
+      <tr (dblclick)="mostrarDetalles(driver)">
+        <td>{{ driver.driverId }}</td>
+        <!--<td>{{ driver.driverRef }}</td>-->
+        <td>{{ driver.number }}</td>
+        <td>{{ driver.code }}</td>
+        <td>{{ driver.forename }}</td>
+        <td>{{ driver.surname }}</td>
+        <td>{{ driver.dob | date:'dd/MM/yyyy' }}</td>
+        <td>{{ driver.nationality }}</td>
+        <td>{{ driver.url }}</td>
+        <td><button type="button" class="btn btn-outline-danger" (click)="deleteDriver(driver.driverId)">
           <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
         </button></td>
-    </tr>
+      </tr>
+    }
   </tbody>
 </table>
-<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
-  Piloto creado con éxito.
-</div>
-<div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
-  Error al crear Piloto
-</div>
+@if (showSuccessAlert) {
+  <div class="alert alert-success" role="alert">
+    Piloto creado con éxito.
+  </div>
+}
+@if (showErrorAlert) {
+  <div class="alert alert-danger" role="alert">
+    Error al crear Piloto
+  </div>
+}

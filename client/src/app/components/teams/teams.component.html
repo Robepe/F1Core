@@ -7,32 +7,38 @@
   <div class="d-flex justify-content-end">
     <button type="button" class="btn btn-danger ml-auto" (click)="addConstructor()">➕</button>
   </div>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">ConstructorID</th>
-      <!--<th scope="col">ConstructorRef</th>-->
-      <th scope="col">Nombre</th>
-      <th scope="col">Nacionalidad</th>
-      <th scope="col">Url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let constructor of filteredConstructors" (dblclick)="mostrarDetalles(constructor)">
-      <td>{{ constructor.constructorId }}</td>
-      <!--<td>{{ constructor.constructorRef }}</td>-->
-      <td>{{ constructor.name }}</td>
-      <td>{{ constructor.nationality }}</td>
-      <td>{{ constructor.url }}</td>
-      <td><button type="button" class="btn btn-outline-danger" (click)="deleteConstructor(constructor.constructorId)">
-          <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
-        </button></td>
-    </tr>
-  </tbody>
-</table>
-<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
-  Equipo creado con éxito.
-</div>
-<div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
-  Error al crear Equipo
-</div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ConstructorID</th>
+        <!--<th scope="col">ConstructorRef</th>-->
+        <th scope="col">Nombre</th>
+        <th scope="col">Nacionalidad</th>
+        <th scope="col">Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (constructor of filteredConstructors; track constructor) {
+        <tr (dblclick)="mostrarDetalles(constructor)">
+          <td>{{ constructor.constructorId }}</td>
+          <!--<td>{{ constructor.constructorRef }}</td>-->
+          <td>{{ constructor.name }}</td>
+          <td>{{ constructor.nationality }}</td>
+          <td>{{ constructor.url }}</td>
+          <td><button type="button" class="btn btn-outline-danger" (click)="deleteConstructor(constructor.constructorId)">
+            <img src="assets/media/icons/borrar.png" alt="Icono PNG" width="16" height="16">
+          </button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  @if (showSuccessAlert) {
+    <div class="alert alert-success" role="alert">
+      Equipo creado con éxito.
+    </div>
+  }
+  @if (showErrorAlert) {
+    <div class="alert alert-danger" role="alert">
+      Error al crear Equipo
+    </div>
+  }

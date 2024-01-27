@@ -24,9 +24,11 @@
     </div>
   </nav>
 
-  <div class="alert alert-success" *ngIf="isSuccessful" role="alert">
-    Your registration is successful!
-  </div>
+  @if (isSuccessful) {
+    <div class="alert alert-success" role="alert">
+      Your registration is successful!
+    </div>
+  }
 
   <!-- Contenido del login -->
   <div class="container mt-5">
@@ -45,14 +47,22 @@
                       formControlName="username"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
-                    />
-                    <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                      <div *ngIf="f['username'].errors['required']" [translate]="'signin.usernameRequired'"></div>
-                      <div *ngIf="f['username'].errors['minlength']" [translate]="'signin.usernameMin'"></div>
-                      <div *ngIf="f['username'].errors['maxlength']" [translate]="'signin.usernameMax'"></div>
-                    </div>
+                      />
+                    @if (submitted && f['username'].errors) {
+                      <div class="invalid-feedback">
+                        @if (f['username'].errors['required']) {
+                          <div [translate]="'signin.usernameRequired'"></div>
+                        }
+                        @if (f['username'].errors['minlength']) {
+                          <div [translate]="'signin.usernameMin'"></div>
+                        }
+                        @if (f['username'].errors['maxlength']) {
+                          <div [translate]="'signin.usernameMax'"></div>
+                        }
+                      </div>
+                    }
                   </div>
-              
+
                   <div class="form-group">
                     <label>Email</label>
                     <input
@@ -60,13 +70,19 @@
                       formControlName="email"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
-                    />
-                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                      <div *ngIf="f['email'].errors['required']" [translate]="'signin.emailRequired'"></div>
-                      <div *ngIf="f['email'].errors['email']" [translate]="'signin.emailInvalid'"></div>
-                    </div>
+                      />
+                    @if (submitted && f['email'].errors) {
+                      <div class="invalid-feedback">
+                        @if (f['email'].errors['required']) {
+                          <div [translate]="'signin.emailRequired'"></div>
+                        }
+                        @if (f['email'].errors['email']) {
+                          <div [translate]="'signin.emailInvalid'"></div>
+                        }
+                      </div>
+                    }
                   </div>
-              
+
                   <div class="form-group">
                     <label [translate]="'signin.password'"></label>
                     <input
@@ -74,14 +90,22 @@
                       formControlName="password"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-                    />
-                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                      <div *ngIf="f['password'].errors['required']" [translate]="'signin.passwordRequired'">Password is required</div>
-                      <div *ngIf="f['password'].errors['minlength']" [translate]="'signin.passwordMin'"></div>
-                      <div *ngIf="f['password'].errors['maxlength']" [translate]="'signin.passwordMax'"></div>
-                    </div>
+                      />
+                    @if (submitted && f['password'].errors) {
+                      <div class="invalid-feedback">
+                        @if (f['password'].errors['required']) {
+                          <div [translate]="'signin.passwordRequired'">Password is required</div>
+                        }
+                        @if (f['password'].errors['minlength']) {
+                          <div [translate]="'signin.passwordMin'"></div>
+                        }
+                        @if (f['password'].errors['maxlength']) {
+                          <div [translate]="'signin.passwordMax'"></div>
+                        }
+                      </div>
+                    }
                   </div>
-              
+
                   <div class="form-group">
                     <label [translate]="'signin.confirmPassword'"></label>
                     <input
@@ -89,16 +113,21 @@
                       formControlName="confirmPassword"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
-                    />
-                    <div
-                      *ngIf="submitted && f['confirmPassword'].errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="f['confirmPassword'].errors['required']" [translate]="'signin.confirmPassword'"></div>
-                      <div *ngIf="f['confirmPassword'].errors['matching']" [translate]="'signin.confUnmatch'"></div>
-                    </div>
+                      />
+                    @if (submitted && f['confirmPassword'].errors) {
+                      <div
+                        class="invalid-feedback"
+                        >
+                        @if (f['confirmPassword'].errors['required']) {
+                          <div [translate]="'signin.confirmPassword'"></div>
+                        }
+                        @if (f['confirmPassword'].errors['matching']) {
+                          <div [translate]="'signin.confUnmatch'"></div>
+                        }
+                      </div>
+                    }
                   </div>
-              
+
                   <div class="form-group">
                     <br/>
                     <button type="submit" class="btn btn-primary" [translate]="'signin.register'"></button>
@@ -119,7 +148,7 @@
         <div class="col text-start">
           <div ngbDropdown placement="top-end" class="d-inline-block">
             <button type="button" class="btn btn-secondary" id="dropdownBasic2" [translate]="'footer.language'"
-              ngbDropdownToggle></button>
+            ngbDropdownToggle></button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
               <button ngbDropdownItem (click)="changeLanguage('en')" [translate]="'dropdown.english'"></button>
               <button ngbDropdownItem (click)="changeLanguage('es')" [translate]="'dropdown.spanish'"></button>

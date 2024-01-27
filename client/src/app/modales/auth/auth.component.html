@@ -13,18 +13,26 @@
           formControlName="username"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
-        />
-        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-          <div *ngIf="f['username'].errors['required']">Username is required</div>
-          <div *ngIf="f['username'].errors['minlength']">
-            Username must be at least 5 characters
+          />
+        @if (submitted && f['username'].errors) {
+          <div class="invalid-feedback">
+            @if (f['username'].errors['required']) {
+              <div>Username is required</div>
+            }
+            @if (f['username'].errors['minlength']) {
+              <div>
+                Username must be at least 5 characters
+              </div>
+            }
+            @if (f['username'].errors['maxlength']) {
+              <div>
+                Username must not exceed 20 characters
+              </div>
+            }
           </div>
-          <div *ngIf="f['username'].errors['maxlength']">
-            Username must not exceed 20 characters
-          </div>
-        </div>
+        }
       </div>
-  
+
       <div class="form-group">
         <label>Password</label>
         <input
@@ -32,18 +40,26 @@
           formControlName="password"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-        />
-        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <div *ngIf="f['password'].errors['required']">Password is required</div>
-          <div *ngIf="f['password'].errors['minlength']">
-            Password must be at least 4 characters
+          />
+        @if (submitted && f['password'].errors) {
+          <div class="invalid-feedback">
+            @if (f['password'].errors['required']) {
+              <div>Password is required</div>
+            }
+            @if (f['password'].errors['minlength']) {
+              <div>
+                Password must be at least 4 characters
+              </div>
+            }
+            @if (f['password'].errors['maxlength']) {
+              <div>
+                Username must not exceed 40 characters
+              </div>
+            }
           </div>
-          <div *ngIf="f['password'].errors['maxlength']">
-            Username must not exceed 40 characters
-          </div>
-        </div>
+        }
       </div>
-  
+
       <div class="form-group">
         <br/>
         <button type="submit" class="btn btn-danger">Iniciar Sesión</button>
